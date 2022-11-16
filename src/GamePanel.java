@@ -44,7 +44,10 @@ public class GamePanel extends JPanel {
 
     //Bulk of Code will be here!!!!!!
     public void update() {
-        p1.move();
+        while(p1.getMove() < 250){
+            p1.move();
+        }
+
         p2.move();
         repaint();
     }

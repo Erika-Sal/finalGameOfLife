@@ -24,6 +24,9 @@ public class player {
     public void move(){
     x+=3;
     }
+    public int getMove(){
+        return x;
+    }
     public void drawSelf(Graphics g, int p){
         if(p == 1){
             g.setColor(Color.yellow);
