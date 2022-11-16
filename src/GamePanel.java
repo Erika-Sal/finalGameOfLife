@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 public class GamePanel extends JPanel {
     final int originalTileSize = 16;
     final int scale = 3;
-
     final int tileSize = originalTileSize * scale;
     final int maxScreenCol = 16;
     final int maxScreenRow = 12;
@@ -43,6 +42,7 @@ public class GamePanel extends JPanel {
     }
 
 
+    //Bulk of Code will be here!!!!!!
     public void update() {
         p1.move();
         p2.move();

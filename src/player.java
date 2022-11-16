@@ -27,10 +27,10 @@ public class player {
     public void drawSelf(Graphics g, int p){
         if(p == 1){
             g.setColor(Color.yellow);
-            g.fillRect(x, y, 40, 40);
+            g.fillRect(x, y, 20, 20);
         }else{
             g.setColor(Color.blue);
-            g.fillRect(x, y, 40, 40);
+            g.fillRect(x, y, 20, 20);
         }
 
 
