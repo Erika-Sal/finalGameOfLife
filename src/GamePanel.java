@@ -44,11 +44,15 @@ public class GamePanel extends JPanel {
 
     //Bulk of Code will be here!!!!!!
     public void update() {
-        while(p1.getMove() < 250){
+        boolean first = true;
+        if(p1.getMove() < 250 && first){
             p1.move();
+        }else{
+            first = false; 
         }
-
-        p2.move();
+        if(!first){
+            p2.move();
+        }
         repaint();
     }
 
