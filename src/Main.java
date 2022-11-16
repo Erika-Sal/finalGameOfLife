@@ -15,9 +15,9 @@ public class Main {
         window.pack();
         window.setLocationRelativeTo(null);
         window.setVisible(true);
-        player p1 = new player(200000, " ", 0, " ", 0, 0);
-        player p2 = new player(200000, " ", 0, " ", 0, 0);
+
         //playGame();
+        gamePanel.startGameThread();
     }
 
     public static void playGame() {

@@ -1,4 +1,8 @@
+import java.awt.*;
+
 public class player {
+    GamePanel gp;
+    int x, y;
     int money;
     String career;
     int salary;
@@ -6,13 +10,30 @@ public class player {
     int babies;
     int steps;
 
-    public player(int m, String c, int s, String h, int b, int st) {
+    public player(int m, String c, int s, String h, int b, int st, GamePanel gp, int xVal, int yVal) {
         money = m;
         career = c;
         salary = s;
         house = h;
         babies = b;
         steps = st;
+        this.gp = gp;
+        x = xVal;
+        y = yVal;
+    }
+    public void move(){
+    x++;
+    }
+    public void drawSelf(Graphics g, int p){
+        if(p == 1){
+            g.setColor(Color.yellow);
+            g.fillRect(x, y, 40, 40);
+        }else{
+            g.setColor(Color.blue);
+            g.fillRect(x, y, 40, 40);
+        }
+
+
     }
 
     public int getMoney() {
@@ -62,4 +83,8 @@ public class player {
     public void setSteps(){
         steps+=1;
     }
+
+
+
+
 }
