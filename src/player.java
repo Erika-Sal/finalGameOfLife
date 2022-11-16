@@ -22,7 +22,7 @@ public class player {
         y = yVal;
     }
     public void move(){
-    x++;
+    x+=3;
     }
     public void drawSelf(Graphics g, int p){
         if(p == 1){
