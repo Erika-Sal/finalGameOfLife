@@ -1,5 +1,26 @@
+import javax.swing.*;
+
 public class Main {
+
+
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        JFrame window = new JFrame();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setTitle("2D Adventure");
+
+        GamePanel gamePanel = new GamePanel();
+        window.add(gamePanel);
+        window.pack();
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
+        player p1 = new player(200000, " ", 0, " ", 0, 0);
+        player p2 = new player(200000, " ", 0, " ", 0, 0);
+        //playGame();
+    }
+
+    public static void playGame() {
+
     }
 }
