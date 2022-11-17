@@ -44,7 +44,8 @@ public class GamePanel extends JPanel {
 //test pushh
     //Bulk of Code will be here!!!!!!
     public void playGame() {
-        boolean first = true;
+        boolean start = true;
+        /*boolean first = true;
         if(p1.getMove() < 250 && first){
             p1.move();
         }else{
@@ -52,9 +53,21 @@ public class GamePanel extends JPanel {
         }
         if(!first){
             p2.move();
+        }*/
+        while(start == true)
+        {
+            //display turn screen
+            int move = (int) (Math.random()*11);
+            while(move!=0){
+                System.out.println("chicken");
+            }
+            start = false;
+
         }
         repaint();
+
     }
+
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
