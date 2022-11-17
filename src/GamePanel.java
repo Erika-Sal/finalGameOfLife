@@ -45,9 +45,14 @@ public class GamePanel extends JPanel {
     //Bulk of Code will be here!!!!!!
     public void playGame() {
         boolean first = true;
-       for(int i = 0; i < 1; i++){
-           p1.move();
-       }
+        if(p1.getMove() < 250 && first){
+            p1.move();
+        }else{
+            first = false; 
+        }
+        if(!first){
+            p2.move();
+        }
         repaint();
     }
 
