@@ -22,7 +22,7 @@ public class player {
         y = yVal;
     }
     public void move(){
-    x+=3;
+    x+=1;
     }
     public int getMove(){
         return x;
