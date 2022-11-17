@@ -28,7 +28,7 @@ public class GamePanel extends JPanel {
 
             public void run() {
                 while (true) {
-                    playGame();
+                    update();
                     try {
                         gameThread.sleep(1000 / FPS);
                     } catch (Exception e) {
@@ -41,9 +41,9 @@ public class GamePanel extends JPanel {
         gameThread.start();
     }
 
-
+//erika eats cheese
     //Bulk of Code will be here!!!!!!
-    public void playGame() {
+    public void update() {
         boolean first = true;
         if(p1.getMove() < 250 && first){
             p1.move();
