@@ -18,8 +18,9 @@ public class GamePanel extends JPanel {
     player p2 = new player(200000, " ", 0, " ", 0, 0, this, 20, 80);
 
     public GamePanel() {
+
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        this.setBackground(Color.BLACK);
+
         this.setDoubleBuffered(true);
     }
 
@@ -44,10 +45,12 @@ public class GamePanel extends JPanel {
 //test pushh
     //Bulk of Code will be here!!!!!!
     public void playGame() {
-
-
         if(p1.getSteps() < 80) {
             p1.move();
+            p1.setSteps();
+            repaint();
+        }else{
+            p2.move();
             p1.setSteps();
             repaint();
         }
@@ -55,6 +58,9 @@ public class GamePanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("IMG_0170.jpg"); /*the image cannot be in the SRC folder*/
+        g2.drawImage(img1, 0 , 0 , 800 , 600 , this);
         if (p1 != null){
             p1.drawSelf(g, 1);
         }
