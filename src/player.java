@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class player {
     GamePanel gp;
-    int x, y;
+    double x, y;
     int money;
     String career;
     int salary;
@@ -10,7 +10,8 @@ public class player {
     int babies;
     int steps;
 
-    public player(int m, String c, int s, String h, int b, int st, GamePanel gp, int xVal, int yVal) {
+    double count;
+    public player(int m, String c, int s, String h, int b, int st, GamePanel gp, int xVal, int yVal, double cnt) {
         money = m;
         career = c;
         salary = s;
@@ -20,20 +21,162 @@ public class player {
         this.gp = gp;
         x = xVal;
         y = yVal;
+        count = cnt;
     }
     public void move(){
-    x+=1;
+        if(this.getSteps() < 80 ) {
+            x+=1;
+            y-=.05;
+
+        }
+
+        if(this.getSteps() >= 80 && this.getSteps() < 130){
+            x+=1;
+            y-=.05;
+
+        }
+
+        if(this.getSteps() >= 130 && this.getSteps() < 169){
+            x+=1;
+            y-=.05;
+        }
+
+        if(this.getSteps() >= 169 && this.getSteps() < 210){
+            x+=1;
+            y-=.05;
+        }
+
+        if(this.getSteps() >= 210 && this.getSteps() < 250){
+            x+=1;
+            y-=.05;
+
+        }
+        if(this.getSteps() >= 250 && this.getSteps() < 310){
+            x+=.5;
+            y+=.5;
+        }
+
+        if(this.getSteps() >= 310 && this.getSteps() < 345){
+            y+=1;
+            x-=.1;
+        }
+
+        if(this.getSteps() >= 345 && this.getSteps() < 395){
+            y+=.3;
+            x-=1;
+        }
+
+        if(this.getSteps() >= 395 && this.getSteps() < 430){
+            y+=.3;
+            x-=1;
+        }
+
+        if(this.getSteps() >= 430 && this.getSteps() < 475){
+            y+=.3;
+            x-=1;
+        }
+
+        if(this.getSteps() >= 475 && this.getSteps() < 520){
+            x-=.5;
+            y+=.8;
+        }
+
+        if(this.getSteps() >= 520 && this.getSteps() < 600){
+            y+=.5;
+        }
+
+        if(this.getSteps() >= 600 && this.getSteps() < 670){
+            x+=.5;
+            y+=.4;
+        }
+        if(this.getSteps() >= 670 && this.getSteps() < 750){
+            x+=.5;
+            y+=.3;
+        }
+
+        if(this.getSteps() >= 750 && this.getSteps() < 830){
+            x+=.5;
+        }
+
+        if(this.getSteps() >= 830 && this.getSteps() < 940){
+            x+=.5;
+            y-=.15;
+        }
+
+        if(this.getSteps() >= 940 && this.getSteps() < 1030){
+            x+=.5;
+            y-=.3;
+        }
+
+        if(this.getSteps() >= 1030 && this.getSteps() < 1120){
+            x+=.5;
+            y-=.3;
+        }
+
+        if(this.getSteps() >= 1120 && this.getSteps() < 1200){
+            x+=.5;
+            y-=.4;
+        }
+
+        if(this.getSteps() >= 1200 && this.getSteps() < 1270){
+            x+=.5;
+
+        }
+
+        if(this.getSteps() >= 1270 && this.getSteps() < 1330){
+            x+=.5;
+            y+=.5;
+        }
+
+        if(this.getSteps() >= 1330 && this.getSteps() < 1380){
+            y+=1;
+        }
+
+        if(this.getSteps() >= 1380 && this.getSteps() < 1415){
+            x-=.5;
+            y+=.85;
+        }
+
+        if(this.getSteps() >= 1415 && this.getSteps() < 1460){
+            x-=.5;
+            y+=.85;
+        }
+
+        if(this.getSteps() >= 1460 && this.getSteps() < 1560){
+            x-=.5;
+            y+=.1;
+        }
+
+            if(this.getSteps() >= 1560 && this.getSteps() < 1660){
+            x-=.5;
+            y+=.1;
+        }
+
+        if(this.getSteps() >= 1660 && this.getSteps() < 1765){
+            x-=.5;
+            y+=.1;
+        }
+
+        if(this.getSteps() >= 1765 && this.getSteps() < 1865){
+            x-=.5;
+            y+=.1;
+        }
+
+        if(this.getSteps() >= 1865 && this.getSteps() < 1965){
+            x-=.5;
+            y+=.1;
+        }
     }
-    public int getMove(){
+    public double getMove(){
         return x;
     }
     public void drawSelf(Graphics g, int p){
         if(p == 1){
-            g.setColor(Color.yellow);
-            g.fillRect(x, y, 20, 20);
+            g.setColor(Color.black);
+            g.fillRect((int)x, (int)y, 20, 20);
         }else{
             g.setColor(Color.blue);
-            g.fillRect(x, y, 20, 20);
+            g.fillRect((int)x, (int)y, 20, 20);
         }
 
 
