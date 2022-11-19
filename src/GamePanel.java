@@ -14,8 +14,8 @@ public class GamePanel extends JPanel {
 
     int FPS = 60;
     Thread gameThread;
-    player p1 = new player(200000, " ", 0, " ", 0, 0, this, 40, 55,0);
-    player p2 = new player(200000, " ", 0, " ", 0, 0, this, 70, 55,0);
+    player p1 = new player(200000, " ", 0, " ", 0, 0, this, 40, 80,0);
+    player p2 = new player(200000, " ", 0, " ", 0, 0, this, 40, 80,0);
 
     public GamePanel() {
 
@@ -45,9 +45,16 @@ public class GamePanel extends JPanel {
 //test pushh
     //Bulk of Code will be here!!!!!!
     public void playGame() {
+        if(p1.getSteps() < 2500){
             p1.move();
             p1.setSteps();
             repaint();
+        }else{
+            p2.move();
+            p2.setSteps();
+            repaint();
+        }
+
     }
 
     public void paintComponent(Graphics g) {
