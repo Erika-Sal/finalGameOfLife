@@ -166,6 +166,23 @@ public class player {
             x-=.5;
             y+=.1;
         }
+        if(this.getSteps() >= 1965 && this.getSteps() < 2030){
+            x-=.5;
+            y+=.6;
+        }
+        if(this.getSteps() >= 2030 && this.getSteps() < 2065){
+            x+=.2;
+            y+=1;
+        }
+        if(this.getSteps() >= 2065 && this.getSteps() < 2108){
+            x+=.2;
+            y+=.95;
+        }
+        if(this.getSteps() >= 2108 && this.getSteps() < 2160){
+            x+=.9;
+            y+=.3;
+        }
+
     }
     public double getMove(){
         return x;
