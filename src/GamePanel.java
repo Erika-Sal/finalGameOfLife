@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class GamePanel extends JPanel {
@@ -11,12 +12,12 @@ public class GamePanel extends JPanel {
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
-
+    int int_random;
     int FPS = 60;
     Thread gameThread;
     player p1 = new player(200000, " ", 0, " ", 0, 0, this, 40, 80,0);
     player p2 = new player(200000, " ", 0, " ", 0, 0, this, 40, 80,0);
-
+boolean go = true;
     public GamePanel() {
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -25,31 +26,60 @@ public class GamePanel extends JPanel {
     }
 
     public void startGameThread() {
-        gameThread = new Thread() {
 
-            public void run() {
-                while (true) {
-                    playGame();
-                    try {
-                        gameThread.sleep(1000 / FPS);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+            gameThread = new Thread() {
+
+                public void run() {
+                    while(p1.getSteps() < 2500 || p2.getSteps() < 2500){
+                        Random rand = new Random();
+                        int upperbound = 12;
+                        int_random = rand.nextInt(upperbound) + 1;
+                        p1.setCnt(12);
+                        while (p1.getCnt() > 0 && p1.getSteps() < 2500) {
+                            playGame();
+                            System.out.println(p1.getCnt());
+                            try {
+                                gameThread.sleep(1000 / FPS);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        rand = new Random();
+                        upperbound = 12;
+                        int_random = rand.nextInt(upperbound) + 1;
+                        p2.setCnt(int_random);
+                        while (p2.getCnt() > 0 && p2.getSteps() < 2500) {
+                            playGame();
+                            System.out.println(p2.getCnt());
+                            try {
+                                gameThread.sleep(1000 / FPS);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
                     }
-                }
-            }
-        };
 
-        gameThread.start();
-    }
+                }
+            };
+
+
+            gameThread.start();
+        }
+
+
+
+
     //erika eat cheeseee
 //test pushh
     //Bulk of Code will be here!!!!!!
     public void playGame() {
-        if(p1.getSteps() < 2500){
+
+        if(p1.getSteps() < 2500 && p1.getCnt() > 0){
             p1.move();
             p1.setSteps();
             repaint();
-        }else{
+        }
+        if(p2.getSteps()< 2500 && p2.getCnt() > 0 ){
             p2.move();
             p2.setSteps();
             repaint();
