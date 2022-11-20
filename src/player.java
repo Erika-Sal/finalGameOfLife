@@ -106,7 +106,7 @@ public class player {
             x+=.5;
             y-=.15;
         }else if(this.getSteps() == 940){
-            this.setCnt(-1);
+            this.setCnt((int) this.getCnt() * -1);
         }else if(this.getSteps() >= 940 && this.getSteps() < 1030){
             x+=.5;
             y-=.3;
@@ -169,7 +169,7 @@ public class player {
             x-=.5;
             y+=.1;
         }else if(this.getSteps() == 1965){
-            this.setCnt(-1);
+            this.setCnt((int) this.getCnt() * -1);
         }else if(this.getSteps() >= 1965 && this.getSteps() < 2030){
             x-=.5;
             y+=.6;

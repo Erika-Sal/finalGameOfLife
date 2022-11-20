@@ -34,7 +34,7 @@ boolean go = true;
                         Random rand = new Random();
                         int upperbound = 12;
                         int_random = rand.nextInt(upperbound) + 1;
-                        p1.setCnt(12);
+                        p1.setCnt(int_random      );
                         while (p1.getCnt() > 0 && p1.getSteps() < 2500) {
                             playGame();
                             System.out.println(p1.getCnt());
