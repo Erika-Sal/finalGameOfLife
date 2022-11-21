@@ -34,9 +34,9 @@ boolean go = true;
                         Random rand = new Random();
                         int upperbound = 12;
                         int_random = rand.nextInt(upperbound) + 1;
-                        p1.setCnt(int_random      );
+                        p1.setCnt(int_random);
                         while (p1.getCnt() > 0 && p1.getSteps() < 2500) {
-                            playGame();
+                            movePieces();
                             System.out.println(p1.getCnt());
                             try {
                                 gameThread.sleep(1000 / FPS);
@@ -44,12 +44,24 @@ boolean go = true;
                                 e.printStackTrace();
                             }
                         }
+                        if(p1.getSteps()!=431 && p1.getSteps()!=941 && p1.getSteps()!=1966 && p1.getSteps()!= 2500){
+                            String[] tasks = new String[]{"Win the Lottery - Collect $30,000", "Your car breaks down - Lose $10,000", "Take a trip to the Bahamas - Lose $20,000", "You get a bonus at work - Collect $5,000"};
+                            rand = new Random();
+                            upperbound = tasks.length;
+                            int_random = rand.nextInt(upperbound);
+                            System.out.println(tasks[int_random]);
+                        }
+                        try {
+                            gameThread.currentThread().sleep(5 * 1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
                         rand = new Random();
                         upperbound = 12;
                         int_random = rand.nextInt(upperbound) + 1;
                         p2.setCnt(int_random);
                         while (p2.getCnt() > 0 && p2.getSteps() < 2500) {
-                            playGame();
+                            movePieces();
                             System.out.println(p2.getCnt());
                             try {
                                 gameThread.sleep(1000 / FPS);
@@ -57,7 +69,20 @@ boolean go = true;
                                 e.printStackTrace();
                             }
                         }
+                        if(p2.getSteps()!=431 && p2.getSteps()!=941 && p2.getSteps()!=1966 && p2.getSteps()!= 2500){
+                            String[] tasks = new String[]{"Win the Lottery - Collect $30,000", "Your car breaks down - Lose $10,000", "Take a trip to the Bahamas - Lose $20,000", "You get a bonus at work - Collect $5,000"};
+                            rand = new Random();
+                            upperbound = tasks.length;
+                            int_random = rand.nextInt(upperbound);
+                            System.out.println(tasks[int_random]);
+                        }
+                        try {
+                            gameThread.currentThread().sleep(5 * 1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
+                    System.out.println(p1.getSteps());
 
                 }
             };
@@ -71,8 +96,8 @@ boolean go = true;
 
     //erika eat cheeseee
 //test pushh
-    //Bulk of Code will be here!!!!!!
-    public void playGame() {
+
+    public void movePieces() {
 
         if(p1.getSteps() < 2500 && p1.getCnt() > 0){
             p1.move();

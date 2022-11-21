@@ -50,8 +50,8 @@ public class player {
         }else if(this.getSteps() ==210){
             this.setCnt(-1);
         }else if(this.getSteps() >= 210 && this.getSteps() < 250) {
-            x += 1;
-            y -= .05;
+            x += 1.2;
+            y -= .1;
         }else if(this.getSteps() == 250){
             this.setCnt(-1);
         }else if(this.getSteps() >= 250 && this.getSteps() < 310) {
@@ -71,11 +71,11 @@ public class player {
             this.setCnt(-1);
         }else if(this.getSteps() >= 395 && this.getSteps() < 430) {
             y += .3;
-            x -= 1;
+            x -= 1.2;
         }else if(this.getSteps() == 430){
             this.setCnt((int)this.getCnt() * -1);
         }else if(this.getSteps() >= 430 && this.getSteps() < 475) {
-            y += .3;
+            y += .4;
             x -= 1;
         }else if(this.getSteps() == 475){
             this.setCnt(-1);
@@ -167,7 +167,7 @@ public class player {
             this.setCnt(-1);
         }else if(this.getSteps() >= 1865 && this.getSteps() < 1965){
             x-=.5;
-            y+=.1;
+            y+=.2;
         }else if(this.getSteps() == 1965){
             this.setCnt((int) this.getCnt() * -1);
         }else if(this.getSteps() >= 1965 && this.getSteps() < 2030){
@@ -206,11 +206,11 @@ public class player {
             this.setCnt(-1);
         }else if(this.getSteps() >= 2400 && this.getSteps() < 2460) {
             x += .9;
-            y += .1;
+            y += .2;
         }else if(this.getSteps() == 2460){
                 this.setCnt(-1);
         }else if(this.getSteps() >= 2460 && this.getSteps() < 2500){
-            x+=.9;
+            x+=1.2;
         }
     }
     public double getMove(){
