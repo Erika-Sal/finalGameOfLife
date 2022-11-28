@@ -45,7 +45,7 @@ boolean go = true;
                             }
                         }
                         if(p1.getSteps()!=431 && p1.getSteps()!=941 && p1.getSteps()!=1966 && p1.getSteps()!= 2500){
-                            String[] tasks = new String[]{"Win the Lottery - Collect $30,000", "Your car breaks down - Lose $10,000", "Take a trip to the Bahamas - Lose $20,000", "You get a bonus at work - Collect $5,000"};
+                            String[] tasks = new String[]{"Pay for Kid's School - Lose $10,000 per Kid", "Win TV Game Show - Gain $12,000", "File a Law suit sue against another player - Other Player Loses $5,000", "Go on a Family Cruise - Lose $2,000 per Family Member", "You Get into a Car Accident - Lose $5,000", "Enroll Your Child in Day Care - Lose $5,000 Per Child", "Taxes Due - Pay 5% of your Total Money", "Doctors Appointment - pay $200", "You Sold Some of Your Old Furniture - Gain $5,000", "Pay Rent - Pay 7% of House Cost", "You Undergo a Successful Surgery - pay $5,000", "Won a Community Talent Show! - Gain $5,000", "You Found $100 on the Street - Gain $100","You Won a Scholarship - $10,000", "Your Childhood Best Friend is a Millionaire - Gain $15,000", "You Were the 100th Caller in a Sweepstakes - Gain $500", "You Sold your Old College TV - $ 1,500", "You are Issued a Speeding Ticket - $Lose $125","You Get a Parking Ticket - Lose $50", "You Get Cashback on your Credit Card - Gain $500", "You Went on a Shopping Spree - Lose $1,500", "You Pay for Gas - Lose $100", "You went to go buy Groceries - Lose $150", "You went to a Fancy Restaurant - Lose $100", "Mr. Armstrong gives you Free Doughnuts - Gain $100"};
                             rand = new Random();
                             upperbound = tasks.length;
                             int_random = rand.nextInt(upperbound);
@@ -70,7 +70,7 @@ boolean go = true;
                             }
                         }
                         if(p2.getSteps()!=431 && p2.getSteps()!=941 && p2.getSteps()!=1966 && p2.getSteps()!= 2500){
-                            String[] tasks = new String[]{"Win the Lottery - Collect $30,000", "Your car breaks down - Lose $10,000", "Take a trip to the Bahamas - Lose $20,000", "You get a bonus at work - Collect $5,000"};
+                            String[] tasks = new String[]{"Pay for Kid's School - Lose $10,000 per Kid", "Win TV Game Show - Gain $12,000", "File a Law suit sue against another player - Other Player Loses $5,000", "Go on a Family Cruise - Lose $2,000 per Family Member", "You Get into a Car Accident - Lose $5,000", "Enroll Your Child in Day Care - Lose $5,000 Per Child", "Taxes Due - Pay 5% of your Total Money", "Doctors Appointment - pay $200", "You Sold Some of Your Old Furniture - Gain $5,000", "Pay Rent - Pay 7% of House Cost", "You Undergo a Successful Surgery - pay $5,000", "Won a Community Talent Show! - Gain $5,000", "You Found $100 on the Street - Gain $100","You Won a Scholarship - $10,000", "Your Childhood Best Friend is a Millionaire - Gain $15,000", "You Were the 100th Caller in a Sweepstakes - Gain $500", "You Sold your Old College TV - $ 1,500", "You are Issued a Speeding Ticket - $Lose $125","You Get a Parking Ticket - Lose $50", "You Get Cashback on your Credit Card - Gain $500", "You Went on a Shopping Spree - Lose $1,500", "You Pay for Gas - Lose $100", "You went to go buy Groceries - Lose $150", "You went to a Fancy Restaurant - Lose $100", "Mr. Armstrong gives you Free Doughnuts - Gain $100"};
                             rand = new Random();
                             upperbound = tasks.length;
                             int_random = rand.nextInt(upperbound);
@@ -115,7 +115,7 @@ boolean go = true;
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        Image img1 = Toolkit.getDefaultToolkit().getImage("IMG_0170.jpg"); /*the image cannot be in the SRC folder*/
+        Image img1 = Toolkit.getDefaultToolkit().getImage("unnamed.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 800 , 600 , this);
         if (p1 != null){
             p1.drawSelf(g, 1);
