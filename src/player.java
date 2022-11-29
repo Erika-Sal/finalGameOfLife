@@ -49,6 +49,7 @@ public class player {
             y -= .05;
         }else if(this.getSteps() ==210){
             this.setCnt(-1);
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 210 && this.getSteps() < 250) {
             x += 1.2;
             y -= .1;
@@ -88,6 +89,7 @@ public class player {
             y += .5;
         }else if(this.getSteps() == 600){
             this.setCnt(-1);
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 600 && this.getSteps() < 670) {
             x += .5;
             y += .4;
@@ -131,6 +133,7 @@ public class player {
             y+=.5;
         }else if(this.getSteps() == 1330){
             this.setCnt(-1);
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 1330 && this.getSteps() < 1380){
             y+=1;
         }else if(this.getSteps() == 1380){
@@ -160,6 +163,7 @@ public class player {
             y+=.1;
         }else if(this.getSteps() == 1765){
             this.setCnt(-1);
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 1765 && this.getSteps() < 1865){
             x-=.5;
             y+=.1;
@@ -204,6 +208,7 @@ public class player {
             y-=.1;
         }else if(this.getSteps() == 2400){
             this.setCnt(-1);
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 2400 && this.getSteps() < 2460) {
             x += .9;
             y += .2;
@@ -242,6 +247,10 @@ public class player {
 
     public int getBabies() {
         return babies;
+    }
+
+    public void setBabies(int num){
+        babies += num;
     }
 
     public String getHouse() {

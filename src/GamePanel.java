@@ -15,8 +15,8 @@ public class GamePanel extends JPanel {
     int int_random;
     int FPS = 60;
     Thread gameThread;
-    player p1 = new player(200000, " ", 0, " ", 0, 0, this, 40, 80,0);
-    player p2 = new player(200000, " ", 0, " ", 0, 0, this, 40, 80,0);
+    player p1 = new player(200000, " ", 10000, " ", 0, 0, this, 40, 80,0);
+    player p2 = new player(200000, " ", 20000, " ", 0, 0, this, 40, 80,0);
 boolean go = true;
     public GamePanel() {
 
@@ -33,11 +33,9 @@ boolean go = true;
                     while(p1.getSteps() < 2500 || p2.getSteps() < 2500){
                         Random rand = new Random();
                         int upperbound = 12;
-                        int_random = rand.nextInt(upperbound) + 1;
                         p1.setCnt(int_random);
                         while (p1.getCnt() > 0 && p1.getSteps() < 2500) {
                             movePieces();
-                            System.out.println(p1.getCnt());
                             try {
                                 gameThread.sleep(1000 / FPS);
                             } catch (Exception e) {
@@ -49,7 +47,14 @@ boolean go = true;
                             rand = new Random();
                             upperbound = tasks.length;
                             int_random = rand.nextInt(upperbound);
-                            System.out.println(tasks[int_random]);
+                        }
+                        if(p1.getSteps() == 671 || p1.getSteps() == 1121 || p1.getSteps() == 1661 || p1.getSteps() == 2109){
+                            p1.setBabies(1);
+
+                        }
+                        if(p1.getSteps() == 1271 || p1.getSteps() == 1381 || p1.getSteps() == 1866){
+                            p1.setBabies(2);
+
                         }
                         try {
                             gameThread.currentThread().sleep(5 * 1000);
@@ -62,7 +67,7 @@ boolean go = true;
                         p2.setCnt(int_random);
                         while (p2.getCnt() > 0 && p2.getSteps() < 2500) {
                             movePieces();
-                            System.out.println(p2.getCnt());
+
                             try {
                                 gameThread.sleep(1000 / FPS);
                             } catch (Exception e) {
@@ -74,7 +79,15 @@ boolean go = true;
                             rand = new Random();
                             upperbound = tasks.length;
                             int_random = rand.nextInt(upperbound);
-                            System.out.println(tasks[int_random]);
+
+                        }
+                        if(p2.getSteps() == 671 || p2.getSteps() == 1121 || p2.getSteps() == 1661 || p2.getSteps() == 2109){
+                            p2.setBabies(1);
+
+                        }
+                        if(p2.getSteps() == 1271 || p2.getSteps() == 1381 || p2.getSteps() == 1866){
+                            p2.setBabies(2);
+
                         }
                         try {
                             gameThread.currentThread().sleep(5 * 1000);
@@ -82,8 +95,9 @@ boolean go = true;
                             throw new RuntimeException(e);
                         }
                     }
-                    System.out.println(p1.getSteps());
-
+                    //print stuff here
+                    System.out.println(p1.getMoney());
+                    System.out.println(p2.getMoney());
                 }
             };
 
@@ -103,6 +117,7 @@ boolean go = true;
             p1.move();
             p1.setSteps();
             repaint();
+
         }
         if(p2.getSteps()< 2500 && p2.getCnt() > 0 ){
             p2.move();
