@@ -186,8 +186,8 @@ public class player {
         }else if(this.getSteps() == 2030){
             this.setCnt(-1);
         }else if(this.getSteps() >= 2030 && this.getSteps() < 2065){
-            x+=.2;
-            y+=1;
+            x+=.3;
+            y+=.6;
         }else if(this.getSteps() == 2065){
             this.setCnt(-1);
         }else if(this.getSteps() >= 2065 && this.getSteps() < 2108){
