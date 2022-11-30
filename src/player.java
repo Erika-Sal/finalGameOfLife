@@ -24,68 +24,70 @@ public class player {
         count = cnt;
     }
     public void move(){
-        if(this.getSteps() < 40 ) {
+
+        if(this.getSteps() < 45 ) {
+            x += 2;
+            y -= .4;
+        }
+        else if(this.getSteps() == 45){
+            this.setCnt(-1);
+        }else if(this.getSteps() >= 45 && this.getSteps() < 85 ) {
             x += 1;
             y -= .4;
-        }else if(this.getSteps() == 40){
+        }else if(this.getSteps() == 85){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 40 && this.getSteps() < 80 ) {
-            x += 1;
-            y -= .4;
-        }else if(this.getSteps() == 80){
-            this.setCnt(-1);
-        }else if(this.getSteps() >= 80 && this.getSteps() < 130) {
+        }else if(this.getSteps() >= 85 && this.getSteps() < 135) {
             x += 1;
             y -= .05;
-        }else if(this.getSteps() == 130){
+        }else if(this.getSteps() == 135){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 130 && this.getSteps() < 169) {
+        }else if(this.getSteps() >= 135 && this.getSteps() < 164) {
             x += 1;
             y -= .05;
-        }else if(this.getSteps() == 169){
+        }else if(this.getSteps() == 164){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 169 && this.getSteps() < 210) {
+        }else if(this.getSteps() >= 164 && this.getSteps() < 215) {
             x += 1;
             y -= .05;
-        }else if(this.getSteps() ==210){
+        }else if(this.getSteps() ==215){
             this.setCnt(-1);
             this.addMoney(this.getSalary());
-        }else if(this.getSteps() >= 210 && this.getSteps() < 250) {
+        }else if(this.getSteps() >= 215 && this.getSteps() < 255) {
             x += 1.2;
             y -= .1;
-        }else if(this.getSteps() == 250){
+        }else if(this.getSteps() == 255){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 250 && this.getSteps() < 310) {
+        }else if(this.getSteps() >= 255 && this.getSteps() < 315) {
             x += .5;
             y += .5;
-        }else if(this.getSteps() == 310){
+        }else if(this.getSteps() == 315){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 310 && this.getSteps() < 345) {
+        }else if(this.getSteps() >= 315 && this.getSteps() < 350) {
             y += 1;
             x -= .1;
-        }else if(this.getSteps() == 345){
+        }else if(this.getSteps() == 350){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 345 && this.getSteps() < 395){
+        }else if(this.getSteps() >= 350 && this.getSteps() < 400){
             y+=.3;
             x-=1;
-        }else if(this.getSteps() == 395){
+        }else if(this.getSteps() == 400){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 395 && this.getSteps() < 430) {
+        }else if(this.getSteps() >= 400 && this.getSteps() < 435) {
             y += .3;
             x -= 1.2;
-        }else if(this.getSteps() == 430){
+        }else if(this.getSteps() == 435){
             this.setCnt((int)this.getCnt() * -1);
-        }else if(this.getSteps() >= 430 && this.getSteps() < 475) {
+        }else if(this.getSteps() >= 435 && this.getSteps() < 480) {
             y += .4;
             x -= 1;
-        }else if(this.getSteps() == 475){
+        }else if(this.getSteps() == 480){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 475 && this.getSteps() < 520) {
+        }else if(this.getSteps() >= 480 && this.getSteps() < 525) {
             x -= .5;
             y += .8;
-        }else if(this.getSteps() == 520){
+        }else if(this.getSteps() == 525){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 520 && this.getSteps() < 600) {
+        }else if(this.getSteps() >= 525 && this.getSteps() < 600) {
             y += .5;
         }else if(this.getSteps() == 600){
             this.setCnt(-1);
@@ -217,6 +219,7 @@ public class player {
         }else if(this.getSteps() >= 2460 && this.getSteps() < 2500){
             x+=1.2;
         }
+
     }
     public double getMove(){
         return x;

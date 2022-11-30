@@ -7,16 +7,16 @@ public class GamePanel extends JPanel {
     final int originalTileSize = 16;
     final int scale = 3;
     final int tileSize = originalTileSize * scale;
-    final int maxScreenCol = 16;
-    final int maxScreenRow = 12;
+    final int maxScreenCol = 20;
+    final int maxScreenRow = 16;
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
     int int_random;
     int FPS = 60;
     Thread gameThread;
-    player p1 = new player(200000, " ", 10000, " ", 0, 0, this, 40, 80,0);
-    player p2 = new player(200000, " ", 20000, " ", 0, 0, this, 40, 80,0);
+    player p1 = new player(200000, " ", 10000, " ", 0, 0, this, 105, 90,0);
+    player p2 = new player(200000, " ", 20000, " ", 0, 0, this, 105, 90,0);
 boolean go = true;
     public GamePanel() {
 
@@ -36,12 +36,14 @@ boolean go = true;
                         p1.setCnt(int_random);
                         while (p1.getCnt() > 0 && p1.getSteps() < 2500) {
                             movePieces();
+                            System.out.println(p1.getCnt());
                             try {
                                 gameThread.sleep(1000 / FPS);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
+                        p1.setCnt(0);
                         if(p1.getSteps()!=431 && p1.getSteps()!=941 && p1.getSteps()!=1966 && p1.getSteps()!= 2500){
                             String[] tasks = new String[]{"Pay for Kid's School - Lose $10,000 per Kid", "Win TV Game Show - Gain $12,000", "File a Law suit sue against another player - Other Player Loses $5,000", "Go on a Family Cruise - Lose $2,000 per Family Member", "You Get into a Car Accident - Lose $5,000", "Enroll Your Child in Day Care - Lose $5,000 Per Child", "Taxes Due - Pay 5% of your Total Money", "Doctors Appointment - pay $200", "You Sold Some of Your Old Furniture - Gain $5,000", "Pay Rent - Pay 7% of House Cost", "You Undergo a Successful Surgery - pay $5,000", "Won a Community Talent Show! - Gain $5,000", "You Found $100 on the Street - Gain $100","You Won a Scholarship - $10,000", "Your Childhood Best Friend is a Millionaire - Gain $15,000", "You Were the 100th Caller in a Sweepstakes - Gain $500", "You Sold your Old College TV - $ 1,500", "You are Issued a Speeding Ticket - $Lose $125","You Get a Parking Ticket - Lose $50", "You Get Cashback on your Credit Card - Gain $500", "You Went on a Shopping Spree - Lose $1,500", "You Pay for Gas - Lose $100", "You went to go buy Groceries - Lose $150", "You went to a Fancy Restaurant - Lose $100", "Mr. Armstrong gives you Free Doughnuts - Gain $100"};
                             rand = new Random();
@@ -67,7 +69,7 @@ boolean go = true;
                         p2.setCnt(int_random);
                         while (p2.getCnt() > 0 && p2.getSteps() < 2500) {
                             movePieces();
-
+                            System.out.println(p2.getCnt());
                             try {
                                 gameThread.sleep(1000 / FPS);
                             } catch (Exception e) {
@@ -94,10 +96,13 @@ boolean go = true;
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
+                        p2.setCnt(0);
                     }
-                    //print stuff here
-                    System.out.println(p1.getMoney());
-                    System.out.println(p2.getMoney());
+                    //print end game totals here
+                    System.out.println("Player 1's Money: "+ "$" + p1.getMoney());
+                    System.out.println("Player 1's Number of Children: " + p1.getBabies());
+                    System.out.println("Player 2's Number of Children: " + p2.getBabies());
+                    System.out.println("Player 2's Money: "+ "$" + p2.getMoney());
                 }
             };
 
@@ -130,8 +135,8 @@ boolean go = true;
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        Image img1 = Toolkit.getDefaultToolkit().getImage("unnamed.jpg"); /*the image cannot be in the SRC folder*/
-        g2.drawImage(img1, 0 , 0 , 800 , 600 , this);
+        Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoard.jpg"); /*the image cannot be in the SRC folder*/
+        g2.drawImage(img1, 0 , 0 , 960 , 770 , this);
         if (p1 != null){
             p1.drawSelf(g, 1);
         }
