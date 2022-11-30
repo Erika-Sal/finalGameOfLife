@@ -179,9 +179,10 @@ public class player {
             x-=.5;
             y+=.3;
         }else if(this.getSteps() == 1965){
-            this.setCnt((int) this.getCnt() * -1);
+            //this.setCnt((int) this.getCnt() * -1);
+            this.setCnt(-1);
         }else if(this.getSteps() >= 1965 && this.getSteps() < 2030){
-            y+=.6;
+            y+=.7;
         }else if(this.getSteps() == 2030){
             this.setCnt(-1);
         }else if(this.getSteps() >= 2030 && this.getSteps() < 2065){
