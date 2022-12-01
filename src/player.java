@@ -71,7 +71,7 @@ public class player {
             y+=.25;
             x-=1;
         }else if(this.getSteps() == 415){
-           // this.setCnt((int)this.getCnt() * -1);
+            // this.setCnt((int)this.getCnt() * -1);
             this.setCnt(-1);
         }else if(this.getSteps() >= 415 && this.getSteps() < 465) {
             y += .3;
@@ -149,12 +149,12 @@ public class player {
             x-=.6;
             y+=.4;
         }else if(this.getSteps() == 1360){
-            this.setCnt(-1); //25
+            this.setCnt(-1);
         }else if(this.getSteps() >= 1360 && this.getSteps() < 1460){
             x-=.6;
             y+=.2;
         }else if(this.getSteps() == 1460){
-            this.setCnt(-1);
+            this.setCnt(-1);//25^
         }else if(this.getSteps() >= 1460 && this.getSteps() < 1560){
             x-=.6;
         }else if(this.getSteps() == 1560){
@@ -185,56 +185,61 @@ public class player {
             y+=.7;
         }else if(this.getSteps() == 2030){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 2030 && this.getSteps() < 2065){
+        }else if(this.getSteps() >= 2030 && this.getSteps() < 2090){
             x+=.3;
-            y+=.6;
-        }else if(this.getSteps() == 2065){
+            y+=.7;
+        }else if(this.getSteps() == 2090){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 2065 && this.getSteps() < 2108){
-            x+=.2;
-            y+=.95;
-        }else if(this.getSteps() == 2108){
+        }else if(this.getSteps() >= 2090 && this.getSteps() < 2170){
+            x+=.6;
+            y+=.2;
+        }else if(this.getSteps() == 2170){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 2108 && this.getSteps() < 2160){
-            x+=.9;
-            y+=.3;
-        }else if(this.getSteps() == 2160){
-            this.setCnt(-1);
-        }else if(this.getSteps() >= 2160 && this.getSteps() < 2250){
-            x+=.5;
+        }else if(this.getSteps() >= 2170 && this.getSteps() < 2250){
+            x+=.7;
+            y+=.1;
         }else if(this.getSteps() == 2250){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 2250 && this.getSteps() < 2350){
-            x+=.9;
+        }else if(this.getSteps() >= 2250 && this.getSteps() < 2330){
+            x+=.7;
             y-=.1;
-        }else if(this.getSteps() == 2350){
+        }else if(this.getSteps() == 2330){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 2350 && this.getSteps() < 2400){
-            x+=.9;
-            y-=.1;
-        }else if(this.getSteps() == 2400){
+        }else if(this.getSteps() >= 2330 && this.getSteps() < 2410){
+            x+=.7;
+            y-=.2;
+        }else if(this.getSteps() == 2410){
             this.setCnt(-1);
-            this.addMoney(this.getSalary());
-        }else if(this.getSteps() >= 2400 && this.getSteps() < 2460) {
-            x += .9;
-            y += .2;
-        }else if(this.getSteps() == 2460){
+        }else if(this.getSteps() >= 2410 && this.getSteps() < 2470){
+            x+=.7;
+        }else if(this.getSteps() == 2470){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 2460 && this.getSteps() < 2500){
-            x+=1.2;
-        }
+            // this.addMoney(this.getSalary());
+        }else if(this.getSteps() >= 2470 && this.getSteps() < 2570) {
+            x += .7;
+        }else if(this.getSteps() == 2570){
+            this.setCnt(-1);
+        }else if(this.getSteps() >= 2570 && this.getSteps() < 2800) {
+            x += .7;
+        }/*else if(this.getSteps() >= 2800){
+           this.setCnt(-1);
+       }*/
 
     }
     public double getMove(){
         return x;
     }
     public void drawSelf(Graphics g, int p){
-        if(p == 1){
-            g.setColor(Color.black);
-            g.fillRect((int)x, (int)y, 20, 20);
+        if(p==1){
+            //g.setColor(Color.black);
+            //g.fillRect((int)x, (int)y, 20, 20);
+            Image boyPeg = Toolkit.getDefaultToolkit().getImage("boyPeg.png"); /*the image cannot be in the SRC folder*/
+            g.drawImage(boyPeg, (int)x, (int)y, 50,50,gp );
         }else{
-            g.setColor(Color.blue);
-            g.fillRect((int)x, (int)y, 20, 20);
+            Image girlPeg = Toolkit.getDefaultToolkit().getImage("girlPeg.png"); /*the image cannot be in the SRC folder*/
+            g.drawImage(girlPeg,(int)x, (int)y, 50,50,gp );
+            //g.setColor(Color.blue);
+            //g.fillRect((int)x, (int)y, 20, 20);
         }
 
 

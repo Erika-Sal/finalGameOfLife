@@ -15,8 +15,8 @@ public class GamePanel extends JPanel {
     int int_random;
     int FPS = 60;
     Thread gameThread;
-    player p1 = new player(200000, " ", 10000, " ", 0, 0, this, 105, 60,0);
-    player p2 = new player(200000, " ", 20000, " ", 0, 0, this, 105, 60,0);
+    player p1 = new player(200000, " ", 10000, " ", 0, 0, this, 90, 45,0);
+    player p2 = new player(200000, " ", 20000, " ", 0, 0, this, 90, 45,0);
     boolean go = true;
     public GamePanel() {
 
@@ -34,7 +34,7 @@ public class GamePanel extends JPanel {
                     Random rand = new Random();
                     int upperbound =  12;
                     //int_random = rand.nextInt(upperbound) + 1;
-                    int_random =32; //completed 19
+                    int_random =38; //completed 19
                     p1.setCnt(int_random);
                     while (p1.getCnt() > 0 && p1.getSteps() < 2500) {
                         movePieces();
@@ -141,10 +141,17 @@ public class GamePanel extends JPanel {
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
         if (p1 != null){
             p1.drawSelf(g, 1);
+            //Image boyPeg = Toolkit.getDefaultToolkit().getImage("boyPeg.png"); /*the image cannot be in the SRC folder*/
+            //g.drawImage(boyPeg, 80 , 70 , 50,50,this );
         }
         if(p2 != null){
             p2.drawSelf(g, 2);
+
         }
+
+
+
+
 
 
 
@@ -154,3 +161,4 @@ public class GamePanel extends JPanel {
 
 
 }
+
