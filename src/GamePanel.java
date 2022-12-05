@@ -33,8 +33,8 @@ public class GamePanel extends JPanel {
                 while(p1.getSteps() < 2750 || p2.getSteps() < 2750){
                     Random rand = new Random();
                     int upperbound =  12;
-                    //int_random = rand.nextInt(upperbound) + 1;
-                    int_random =39;
+                    int_random = rand.nextInt(upperbound) + 1;
+                    //int_random =39;
                     p1.setCnt(int_random);
                     while (p1.getCnt() > 0 && p1.getSteps() < 2750) {
                         movePieces();
@@ -52,13 +52,12 @@ public class GamePanel extends JPanel {
                         upperbound = tasks.length;
                         int_random = rand.nextInt(upperbound);
                     }
-                    if(p1.getSteps() == 671 || p1.getSteps() == 1121 || p1.getSteps() == 1661 || p1.getSteps() == 2109){
+                    if(p1.getSteps() == 585 || p1.getSteps() == 850 || p1.getSteps() == 950 || p1.getSteps() == 1290 || p1.getSteps() == 1560){
                         p1.setBabies(1);
 
                     }
-                    if(p1.getSteps() == 1271 || p1.getSteps() == 1381 || p1.getSteps() == 1866){
+                    if(p1.getSteps() == 1055 || p1.getSteps() == 1220 || p1.getSteps() == 1866 || p1.getSteps() == 1780){
                         p1.setBabies(2);
-
                     }
                     try {
                         gameThread.currentThread().sleep(5 * 1000);

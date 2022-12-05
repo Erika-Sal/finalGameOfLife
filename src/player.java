@@ -46,12 +46,13 @@ public class player {
             y -= .05;
         }else if(this.getSteps() == 185){
             this.setCnt(-1);
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 184 && this.getSteps() < 235) {
             x += 1;
             y += .2;
         }else if(this.getSteps() ==235){
             this.setCnt(-1);
-            this.addMoney(this.getSalary());
+
         }else if(this.getSteps() >= 235 && this.getSteps() < 275) {
             x += 1;
             y += .55;
@@ -71,8 +72,8 @@ public class player {
             y+=.25;
             x-=1;
         }else if(this.getSteps() == 415){
-            // this.setCnt((int)this.getCnt() * -1);
-            this.setCnt(-1);
+            this.setCnt((int)this.getCnt() * -1);
+            //this.setCnt(-1);
         }else if(this.getSteps() >= 415 && this.getSteps() < 465) {
             y += .3;
             x -= 1;
@@ -88,12 +89,13 @@ public class player {
             y += 1;
         }else if(this.getSteps() == 545){
             this.setCnt(-1);
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 545 && this.getSteps() < 585) {
             y += .8;
             x+=1;
         }else if(this.getSteps() == 585){
             this.setCnt(-1);
-            this.addMoney(this.getSalary());
+
         }else if(this.getSteps() >= 585 && this.getSteps() < 640) {
             x += 1;
             y += .3;
@@ -108,8 +110,8 @@ public class player {
             x+=1;
             y-=.3;
         }else if(this.getSteps() == 750){
-            //this.setCnt((int) this.getCnt() * -1);\
-            this.setCnt(-1);
+            this.setCnt((int) this.getCnt() * -1);
+            //this.setCnt(-1);
         }else if(this.getSteps() >= 750 && this.getSteps() < 810){
             x+=1;
             y-=.4;
@@ -135,11 +137,12 @@ public class player {
             y+=.3;
         }else if(this.getSteps() == 1140){
             this.setCnt(-1);
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 1140 && this.getSteps() < 1220){
             y+=.65;
         }else if(this.getSteps() == 1220){
             this.setCnt(-1);
-            this.addMoney(this.getSalary());
+
         }else if(this.getSteps() >= 1220 && this.getSteps() < 1290){
             x-=.3;
             y+=.6;
@@ -164,12 +167,13 @@ public class player {
             y+=.1;
         }else if(this.getSteps() == 1680){
             this.setCnt(-1);
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 1680 && this.getSteps() < 1780){
             x-=.5;
             y+=.1;
         }else if(this.getSteps() == 1780){
             this.setCnt(-1);
-            this.addMoney(this.getSalary());
+
         }else if(this.getSteps() >= 1780 && this.getSteps() < 1880){
             x-=.5;
             y+=.2;
@@ -179,8 +183,8 @@ public class player {
             x-=.5;
             y+=.3;
         }else if(this.getSteps() == 1965){
-            //this.setCnt((int) this.getCnt() * -1);
-            this.setCnt(-1);
+            this.setCnt((int) this.getCnt() * -1);
+           //this.setCnt(-1);
         }else if(this.getSteps() >= 1965 && this.getSteps() < 2030){
             y+=.7;
         }else if(this.getSteps() == 2030){
@@ -214,7 +218,7 @@ public class player {
             x+=.7;
         }else if(this.getSteps() == 2470){
             this.setCnt(-1);
-            // this.addMoney(this.getSalary());
+            this.addMoney(this.getSalary());
         }else if(this.getSteps() >= 2470 && this.getSteps() < 2570) {
             x += .7;
         }else if(this.getSteps() == 2570){
