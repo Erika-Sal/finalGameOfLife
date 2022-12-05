@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76b4e7eb-ade9-44b2-9c9b-eb8583023b7a" name="Changes" comment="new Commit">
+      <change afterPath="$PROJECT_DIR$/actionCard.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/careerCard.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/houseCard.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spinner.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +51,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\s791072\IdeaProjects\finalGameOfLife" />
       <recent name="C:\Users\bsalv\IdeaProjects\finalGameOfLife" />
     </key>
     <key name="MoveFile.RECENT_KEYS">

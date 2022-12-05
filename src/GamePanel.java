@@ -139,6 +139,19 @@ public class GamePanel extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
         Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoard.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
+
+        Image spinner = Toolkit.getDefaultToolkit().getImage("spinner.png");
+        g2.drawImage(spinner, 12,271, 206  , 177, this);
+
+        Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
+        g2.drawImage(actionCard, 720,17, 125  , 125, this);
+
+        Image houseCard  = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
+        g2.drawImage(houseCard, 685,157, 170  , 85, this);
+
+        Image careerCard  = Toolkit.getDefaultToolkit().getImage("careerCard.PNG");
+        g2.drawImage(careerCard, 685,246, 170  , 85, this);
+
         if (p1 != null){
             p1.drawSelf(g, 1);
             //Image boyPeg = Toolkit.getDefaultToolkit().getImage("boyPeg.png"); /*the image cannot be in the SRC folder*/
