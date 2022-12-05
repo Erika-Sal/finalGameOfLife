@@ -219,11 +219,16 @@ public class player {
             x += .7;
         }else if(this.getSteps() == 2570){
             this.setCnt(-1);
-        }else if(this.getSteps() >= 2570 && this.getSteps() < 2800) {
+        }else if(this.getSteps() >= 2570 && this.getSteps() < 2700) {
             x += .7;
-        }/*else if(this.getSteps() >= 2800){
+        }else if(this.getSteps() == 2700){
            this.setCnt(-1);
-       }*/
+       }else if(this.getSteps() >= 2700 && this.getSteps() < 2750){
+            x+= .7;
+            y+=.2;
+        }else if(this.getSteps() == 2750){
+            this.setCnt(-1);
+        }
 
     }
     public double getMove(){
