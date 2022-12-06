@@ -56,7 +56,7 @@ public class GamePanel extends JPanel {
                         p1.setBabies(1);
 
                     }
-                    if(p1.getSteps() == 1055 || p1.getSteps() == 1220 || p1.getSteps() == 1866 || p1.getSteps() == 1780){
+                    if(p1.getSteps() == 1055 || p1.getSteps() == 1220 || p1.getSteps() == 1780 || p1.getSteps() == 2090){
                         p1.setBabies(2);
                     }
                     try {

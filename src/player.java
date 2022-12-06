@@ -173,18 +173,17 @@ public class player {
             y+=.1;
         }else if(this.getSteps() == 1780){
             this.setCnt(-1);
-
         }else if(this.getSteps() >= 1780 && this.getSteps() < 1880){
             x-=.5;
             y+=.2;
         }else if(this.getSteps() == 1880){
-            this.setCnt(-1);
+            this.setCnt((int) this.getCnt() * -1);
         }else if(this.getSteps() >= 1880 && this.getSteps() < 1965){
             x-=.5;
             y+=.3;
         }else if(this.getSteps() == 1965){
-            this.setCnt((int) this.getCnt() * -1);
-           //this.setCnt(-1);
+
+           this.setCnt(-1);
         }else if(this.getSteps() >= 1965 && this.getSteps() < 2030){
             y+=.7;
         }else if(this.getSteps() == 2030){
