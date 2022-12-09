@@ -12,6 +12,8 @@ public class GamePanel extends JPanel {
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
+    Image cards;
+    boolean changes;
     int int_random;
     int FPS = 60;
     Thread gameThread;
@@ -23,6 +25,7 @@ public class GamePanel extends JPanel {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 
         this.setDoubleBuffered(true);
+
     }
 
     public void startGameThread() {
@@ -30,15 +33,16 @@ public class GamePanel extends JPanel {
         gameThread = new Thread() {
 
             public void run() {
-                while(p1.getSteps() < 2750 || p2.getSteps() < 2750){
+                while(p1.getSteps() < 2750 || p2.getSteps() < 2750) {
                     Random rand = new Random();
-                    int upperbound =  12;
+                    int upperbound = 12;
                     int_random = rand.nextInt(upperbound) + 1;
                     //int_random =39;
                     p1.setCnt(int_random);
                     while (p1.getCnt() > 0 && p1.getSteps() < 2750) {
                         movePieces();
                         System.out.println(p1.getCnt());
+                        repaint();
                         try {
                             gameThread.sleep(1000 / FPS);
                         } catch (Exception e) {
@@ -46,24 +50,25 @@ public class GamePanel extends JPanel {
                         }
                     }
                     p1.setCnt(0);
-                    if(p1.getSteps()!=431 && p1.getSteps()!=941 && p1.getSteps()!=1966 && p1.getSteps()!= 2750){
-                        String[] tasks = new String[]{"Pay for Kid's School - Lose $10,000 per Kid", "Win TV Game Show - Gain $12,000", "File a Law suit sue against another player - Other Player Loses $5,000", "Go on a Family Cruise - Lose $2,000 per Family Member", "You Get into a Car Accident - Lose $5,000", "Enroll Your Child in Day Care - Lose $5,000 Per Child", "Taxes Due - Pay 5% of your Total Money", "Doctors Appointment - pay $200", "You Sold Some of Your Old Furniture - Gain $5,000", "Pay Rent - Pay 7% of House Cost", "You Undergo a Successful Surgery - pay $5,000", "Won a Community Talent Show! - Gain $5,000", "You Found $100 on the Street - Gain $100","You Won a Scholarship - $10,000", "Your Childhood Best Friend is a Millionaire - Gain $15,000", "You Were the 100th Caller in a Sweepstakes - Gain $500", "You Sold your Old College TV - $ 1,500", "You are Issued a Speeding Ticket - $Lose $125","You Get a Parking Ticket - Lose $50", "You Get Cashback on your Credit Card - Gain $500", "You Went on a Shopping Spree - Lose $1,500", "You Pay for Gas - Lose $100", "You went to go buy Groceries - Lose $150", "You went to a Fancy Restaurant - Lose $100", "Mr. Armstrong gives you Free Doughnuts - Gain $100"};
-                        rand = new Random();
-                        upperbound = tasks.length;
-                        int_random = rand.nextInt(upperbound);
-                    }
-                    if(p1.getSteps() == 585 || p1.getSteps() == 850 || p1.getSteps() == 950 || p1.getSteps() == 1290 || p1.getSteps() == 1560){
+
+
+                    if(p1.getSteps() == 586 || p1.getSteps() == 851 || p1.getSteps() == 951 || p1.getSteps() == 1291 || p1.getSteps() == 1561){
                         p1.setBabies(1);
 
                     }
-                    if(p1.getSteps() == 1055 || p1.getSteps() == 1220 || p1.getSteps() == 1780 || p1.getSteps() == 2090){
+                    if(p1.getSteps() == 1056 || p1.getSteps() == 1221 || p1.getSteps() == 1781 || p1.getSteps() == 2091){
                         p1.setBabies(2);
+                    }else{
+                        actionCard a = new actionCard();
+                        cards = a.pickCard();
+                        changes = true;
                     }
                     try {
                         gameThread.currentThread().sleep(5 * 1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
+                    changes = false;
                     rand = new Random();
                     upperbound = 12;
                     int_random = rand.nextInt(upperbound) + 1;
@@ -84,13 +89,12 @@ public class GamePanel extends JPanel {
                         int_random = rand.nextInt(upperbound);
 
                     }
-                    if(p2.getSteps() == 671 || p2.getSteps() == 1121 || p2.getSteps() == 1661 || p2.getSteps() == 2109){
+                    if(p2.getSteps() == 586 || p2.getSteps() == 851 || p2.getSteps() == 951 || p2.getSteps() == 1291 || p2.getSteps() == 1561){
                         p2.setBabies(1);
 
                     }
-                    if(p2.getSteps() == 1271 || p2.getSteps() == 1381 || p2.getSteps() == 1866){
+                    if(p2.getSteps() == 1056 || p2.getSteps() == 1221 || p2.getSteps() == 1781 || p2.getSteps() == 2091){
                         p2.setBabies(2);
-
                     }
                     try {
                         gameThread.currentThread().sleep(5 * 1000);
@@ -113,7 +117,9 @@ public class GamePanel extends JPanel {
 
 
 
+public void setCard(Image card){
 
+}
     //erika eat cheeseee
 //test pushh
 
@@ -150,6 +156,7 @@ public class GamePanel extends JPanel {
 
         Image careerCard  = Toolkit.getDefaultToolkit().getImage("careerCard.PNG");
         g2.drawImage(careerCard, 685,246, 170  , 85, this);
+        g2.drawImage(cards, 720,17, 125  , 125, this);
 
         if (p1 != null){
             p1.drawSelf(g, 1);
@@ -158,6 +165,9 @@ public class GamePanel extends JPanel {
         }
         if(p2 != null){
             p2.drawSelf(g, 2);
+
+        }
+        if(changes){
 
         }
 

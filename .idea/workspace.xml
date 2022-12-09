@@ -5,9 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76b4e7eb-ade9-44b2-9c9b-eb8583023b7a" name="Changes" comment="new Commit">
-      <change afterPath="$PROJECT_DIR$/animalRescue.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actionCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/familyTree.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/famiyBand.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mountEverest.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/painting.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pool.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sellFlowers.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setSchool.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skateboardContest.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/skyDive.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snailFarm.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taxRefund.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/winAward.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/winContest.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actionCard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670355712966</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="new Commit">
+      <created>1670442045803</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670442045803</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
