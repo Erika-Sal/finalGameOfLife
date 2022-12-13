@@ -7,6 +7,7 @@ import java.util.Random;
 public class actionCard extends Applet{
 
     Image[] bob;
+    int index;
     public actionCard(){
     bob = new Image[23];
     bob[0] = Toolkit.getDefaultToolkit().getImage("animalRescue.PNG");
@@ -35,13 +36,20 @@ public class actionCard extends Applet{
     }
 
     public Image pickCard(){
-        System.out.println("yes");
         Random rand = new Random();
         int upperbound =  23;
         int int_random = rand.nextInt(upperbound) + 1;
         int_random-=1;
+        setIndex(int_random);
         return bob[int_random];
     }
 
+    public void setIndex(int val){
+        index = val;
+    }
+
+    public int getIndex(){
+        return index;
+    }
 
 }
