@@ -1,6 +1,7 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
@@ -20,7 +21,7 @@ import java.awt.Shape;
 
 import java.util.concurrent.TimeUnit;
 
-public class GamePanel extends JPanel  {
+public class GamePanel extends JPanel implements MouseListener{
     final int originalTileSize = 16;
     final int scale = 3;
     final int tileSize = originalTileSize * scale;
@@ -289,40 +290,39 @@ public void setCard(Image card){
         Graphics2D g2 = (Graphics2D) g;
 
 
-        JLabel label1;
-        label1 = new JLabel();
-        label1.setBounds(100,150,200,300);
-        label1.setBackground(Color.black);
-        label1.setOpaque(true);
-        this.add(label1);
-        this.setVisible(true);
 
-        JLabel label2;
-        label2 = new JLabel();
-        label2.setBounds(340,150,200,300);
-        label2.setBackground(Color.black);
-        label2.setOpaque(true);
-        this.add(label2);
-        this.setVisible(true);
-
-        JLabel label3;
-        label3 = new JLabel();
-        label3.setBounds(580,150,200,300);
-        label3.setBackground(Color.black);
-        label3.setOpaque(true);
-        this.add(label3);
-        this.setVisible(true);
-
-        while(start ==true)
-        {
-
-
-            g2.drawRect(50,50,100,100);
-            start = false;
-        }
 
         Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoard.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
+
+
+        if(start ==true)
+        {
+            JLabel label1;
+            label1 = new JLabel();
+            label1.setBounds(100,150,200,300);
+            label1.setBackground(Color.black);
+            label1.setOpaque(true);
+            this.add(label1);
+            this.setVisible(true);
+
+            JLabel label2;
+            label2 = new JLabel();
+            label2.setBounds(340,150,200,300);
+            label2.setBackground(Color.black);
+            label2.setOpaque(true);
+            this.add(label2);
+            this.setVisible(true);
+
+            JLabel label3;
+            label3 = new JLabel();
+            label3.setBounds(580,150,200,300);
+            label3.setBackground(Color.black);
+            label3.setOpaque(true);
+            this.add(label3);
+            this.setVisible(true);
+
+        }
 
 
         Image spin = Toolkit.getDefaultToolkit().getImage("10.gif");
@@ -362,8 +362,37 @@ public void setCard(Image card){
     }
 
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        Point point = e.getPoint();
 
+        if(label1.getBounds().contains(point)){
+            label1.setVisible(false);
+            label2.setVisible(false);
+            label3.setVisible(false);
+            start = false;
+        }
 
+    }
 
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }
 
