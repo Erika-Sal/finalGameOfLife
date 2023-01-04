@@ -1,9 +1,16 @@
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.io.IOException;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 public class GamePanel extends JPanel {
+    boolean spin = false;
     final int originalTileSize = 16;
     final int scale = 3;
     final int tileSize = originalTileSize * scale;
@@ -13,6 +20,7 @@ public class GamePanel extends JPanel {
     final int screenHeight = tileSize * maxScreenRow;
 
     Image cards;
+    Image spinnerr;
     boolean changes;
     int int_random;
     int FPS = 60;
@@ -29,7 +37,6 @@ public class GamePanel extends JPanel {
     }
 
     public void startGameThread() {
-
         gameThread = new Thread() {
 
             public void run() {
@@ -38,7 +45,17 @@ public class GamePanel extends JPanel {
                     int upperbound = 10;
                     int_random = rand.nextInt(upperbound) + 1;
                     //int_random =7;
+                    spinner spinOne = new spinner();
+                    spinnerr = spinOne.showSpin(int_random);
+                    spin = true;
                     p1.setCnt(int_random);
+                    try {
+                        repaint();
+                        gameThread.currentThread().sleep(8 * 1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    spin = false;
                     while (p1.getCnt() > 0 && p1.getSteps() < 2700) {
                         movePieces();
                         System.out.println(p1.getCnt());
@@ -50,8 +67,6 @@ public class GamePanel extends JPanel {
                         }
                     }
                     p1.setCnt(0);
-
-
                     if(p1.getSteps() == 586 || p1.getSteps() == 851 || p1.getSteps() == 951 || p1.getSteps() == 1291 || p1.getSteps() == 1561){
                         p1.setBabies(1);
                     }else if(p1.getSteps() == 1056 || p1.getSteps() == 1221 || p1.getSteps() == 1781 || p1.getSteps() == 2091){
@@ -145,7 +160,17 @@ public class GamePanel extends JPanel {
                     rand = new Random();
                     upperbound = 10;
                     int_random = rand.nextInt(upperbound) + 1;
+                    spinner spinTwo = new spinner();
+                    spinnerr = spinTwo.showSpin(int_random);
+                    spin = true;
                     p2.setCnt(int_random);
+                    try {
+                        repaint();
+                        gameThread.currentThread().sleep(8* 1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    spin=false;
                     while (p2.getCnt() > 0 && p2.getSteps() < 2700) {
                         movePieces();
                         System.out.println(p2.getCnt());
@@ -238,9 +263,6 @@ public class GamePanel extends JPanel {
 
 
 
-public void setCard(Image card){
-
-}
     //erika eat cheeseee
 //test pushh
 
@@ -262,13 +284,16 @@ public void setCard(Image card){
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        // Create a Graphics2D object from the image
+
         Graphics2D g2 = (Graphics2D) g;
+
         Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoard.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
+        AffineTransform identity = new AffineTransform();
 
-        Image spinner = Toolkit.getDefaultToolkit().getImage("spinner.png");
-        g2.drawImage(spinner, 12,271, 206  , 177, this);
-
+        Graphics2D g2d = (Graphics2D) g;
         Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
         g2.drawImage(actionCard, 720,17, 125  , 125, this);
 
@@ -290,6 +315,10 @@ public void setCard(Image card){
         }
         if(changes){
             g2.drawImage(cards, 300,200, 200  , 200, this);
+        }
+
+        if(spin){
+            g2.drawImage(spinnerr, 30,280, 155  , 155, this);
         }
 
 
