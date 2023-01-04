@@ -1,9 +1,26 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
+import java.awt.font.FontRenderContext;
+import java.awt.font.GlyphVector;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.*;
+import java.awt.image.renderable.RenderableImage;
+import java.io.IOException;
+import java.text.AttributedCharacterIterator;
+import java.util.Map;
 import java.util.Random;
+import java.util.ResourceBundle;
+import java.net.URL;
+import java.awt.Rectangle;
+import java.awt.Shape;
+
+
 import java.util.concurrent.TimeUnit;
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel  {
     final int originalTileSize = 16;
     final int scale = 3;
     final int tileSize = originalTileSize * scale;
@@ -17,6 +34,9 @@ public class GamePanel extends JPanel {
     int int_random;
     int FPS = 60;
     Thread gameThread;
+    boolean start =true;
+    JLabel label;
+
     player p1 = new player(200000, " ", 10000, " ", 0, 0, this, 90, 45,0);
     player p2 = new player(200000, " ", 20000, " ", 0, 0, this, 90, 45,0);
     boolean go = true;
@@ -33,6 +53,7 @@ public class GamePanel extends JPanel {
         gameThread = new Thread() {
 
             public void run() {
+                if(start ==false){
                 while(p1.getSteps() < 2700 || p2.getSteps() < 2700) {
                     Random rand = new Random();
                     int upperbound = 10;
@@ -229,6 +250,7 @@ public class GamePanel extends JPanel {
                 System.out.println("Player 1's Number of Children: " + p1.getBabies());
                 System.out.println("Player 2's Number of Children: " + p2.getBabies());
                 System.out.println("Player 2's Money: "+ "$" + p2.getMoney());
+                }// end of true false if
             }
         };
 
@@ -260,29 +282,51 @@ public void setCard(Image card){
 
     }
 
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g)  {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
+
+        JLabel label;
+        label = new JLabel();
+        label.setBounds(100,100,100,100);
+        label.setBackground(Color.white);
+        label.setOpaque(true);
+
+        this.add(label);
+        this.setVisible(true);
+
+        while(start ==true)
+        {
+
+
+            g2.drawRect(50,50,100,100);
+            start = false;
+        }
+
         Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoard.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
 
-        Image spinner = Toolkit.getDefaultToolkit().getImage("spinner.png");
-        g2.drawImage(spinner, 12,271, 206  , 177, this);
 
-        Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
-        g2.drawImage(actionCard, 720,17, 125  , 125, this);
+        Image spin = Toolkit.getDefaultToolkit().getImage("10.gif");
+        //g2.rotate(Math.toRadians(30), 10,10);
+        g2.drawImage(spin,12,271,200,200,this);
 
-        Image houseCard  = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
-        g2.drawImage(houseCard, 685,157, 170  , 85, this);
+            Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
+        g2.drawImage(actionCard,720,17,125,125,this);
 
-        Image careerCard  = Toolkit.getDefaultToolkit().getImage("careerCard.PNG");
-        g2.drawImage(careerCard, 685,246, 170  , 85, this);
+            Image houseCard = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
+        g2.drawImage(houseCard,685,157,170,85,this);
+
+            Image careerCard = Toolkit.getDefaultToolkit().getImage("careerCard.PNG");
+        g2.drawImage(careerCard,685,246,170,85,this);
+
+
+
 
 
         if (p1 != null){
             p1.drawSelf(g, 1);
-            //Image boyPeg = Toolkit.getDefaultToolkit().getImage("boyPeg.png"); /*the image cannot be in the SRC folder*/
-            //g.drawImage(boyPeg, 80 , 70 , 50,50,this );
         }
         if(p2 != null){
             p2.drawSelf(g, 2);
@@ -299,6 +343,7 @@ public void setCard(Image card){
 
 
     }
+
 
 
 

@@ -5,10 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76b4e7eb-ade9-44b2-9c9b-eb8583023b7a" name="Changes" comment="new Commit">
+      <change afterPath="$PROJECT_DIR$/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/athlete.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brainSurgeon.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/farmer.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fashionDesigner.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/filmStar.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lawyer.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mechanic.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/musician.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pilot.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/policeOfficer.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocketScientist.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/careerCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stuntPerformer.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/teacher.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vet.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wheel.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actionCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actionCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +54,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/s791072/IdeaProjects/finalGameOfLife&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "19",
+    "last_opened_file_path": "C:/Users/s791072/IdeaProjects/finalGameOfLife"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\s791072\IdeaProjects\finalGameOfLife" />
