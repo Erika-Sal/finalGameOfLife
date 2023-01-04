@@ -35,7 +35,9 @@ public class GamePanel extends JPanel  {
     int FPS = 60;
     Thread gameThread;
     boolean start =true;
-    JLabel label;
+    JLabel label1;
+    JLabel label2;
+    JLabel label3;
 
     player p1 = new player(200000, " ", 10000, " ", 0, 0, this, 90, 45,0);
     player p2 = new player(200000, " ", 20000, " ", 0, 0, this, 90, 45,0);
@@ -287,13 +289,28 @@ public void setCard(Image card){
         Graphics2D g2 = (Graphics2D) g;
 
 
-        JLabel label;
-        label = new JLabel();
-        label.setBounds(100,100,100,100);
-        label.setBackground(Color.white);
-        label.setOpaque(true);
+        JLabel label1;
+        label1 = new JLabel();
+        label1.setBounds(100,150,200,300);
+        label1.setBackground(Color.black);
+        label1.setOpaque(true);
+        this.add(label1);
+        this.setVisible(true);
 
-        this.add(label);
+        JLabel label2;
+        label2 = new JLabel();
+        label2.setBounds(340,150,200,300);
+        label2.setBackground(Color.black);
+        label2.setOpaque(true);
+        this.add(label2);
+        this.setVisible(true);
+
+        JLabel label3;
+        label3 = new JLabel();
+        label3.setBounds(580,150,200,300);
+        label3.setBackground(Color.black);
+        label3.setOpaque(true);
+        this.add(label3);
         this.setVisible(true);
 
         while(start ==true)
