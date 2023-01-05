@@ -30,7 +30,9 @@ public class GamePanel extends JPanel implements MouseListener{
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
+    Image spinnerr;
     Image cards;
+    boolean spin;
     boolean changes;
     int int_random;
     int FPS = 60;
@@ -443,9 +445,22 @@ public class GamePanel extends JPanel implements MouseListener{
                 while(p1.getSteps() < 2700 || p2.getSteps() < 2700) {
                     Random rand = new Random();
                     int upperbound = 10;
-                    int_random = rand.nextInt(upperbound) + 1;
-                    //int_random =7;
-                    p1.setCnt(int_random);
+                    if(p1.getSteps() < 2700){
+                        int_random = rand.nextInt(upperbound) + 1;
+                        spin = true;
+                        spinner temp = new spinner();
+                        spinnerr = temp.showSpin(int_random);
+                        repaint();
+                        try {
+                            gameThread.currentThread().sleep(9 * 1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                        spin = false;
+                        //int_random =7;
+                        p1.setCnt(int_random);
+                    }
+
                     while (p1.getCnt() > 0 && p1.getSteps() < 2700) {
                         movePieces();
                         System.out.println(p1.getCnt());
@@ -549,10 +564,21 @@ public class GamePanel extends JPanel implements MouseListener{
                     }
                     changes = false;
                     repaint();
-                    rand = new Random();
-                    upperbound = 10;
-                    int_random = rand.nextInt(upperbound) + 1;
-                    p2.setCnt(int_random);
+                    if(p2.getSteps() < 2700){
+                        int_random = rand.nextInt(upperbound) + 1;
+                        spin = true;
+                        spinner temp = new spinner();
+                        spinnerr = temp.showSpin(int_random);
+                        repaint();
+                        try {
+                            gameThread.currentThread().sleep(9 * 1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                        spin = false;
+                        //int_random =7;
+                        p2.setCnt(int_random);
+                    }
                     while (p2.getCnt() > 0 && p2.getSteps() < 2700) {
                         movePieces();
                         System.out.println(p2.getCnt());
@@ -672,11 +698,13 @@ public void setCard(Image card){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoard.jpg"); /*the image cannot be in the SRC folder*/
+        Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoardd.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
 
 
-
+        if(spin){
+            g2.drawImage(spinnerr, 15 , 300 , 170 , 140 , this);
+        }
         Image spin = Toolkit.getDefaultToolkit().getImage("10.gif");
         //g2.rotate(Math.toRadians(30), 10,10);
         g2.drawImage(spin,12,271,200,200,this);
