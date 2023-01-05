@@ -1,16 +1,27 @@
-import javax.imageio.stream.ImageInputStream;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.font.FontRenderContext;
+import java.awt.font.GlyphVector;
 import java.awt.geom.AffineTransform;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import java.io.File;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.*;
+import java.awt.image.renderable.RenderableImage;
 import java.io.IOException;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
+import java.text.AttributedCharacterIterator;
+import java.util.Map;
+import java.util.Random;
+import java.util.ResourceBundle;
+import java.net.URL;
+import java.awt.Rectangle;
+import java.awt.Shape;
 
-public class GamePanel extends JPanel {
-    boolean spin = false;
+
+import java.util.concurrent.TimeUnit;
+
+public class GamePanel extends JPanel implements MouseListener{
     final int originalTileSize = 16;
     final int scale = 3;
     final int tileSize = originalTileSize * scale;
@@ -20,11 +31,15 @@ public class GamePanel extends JPanel {
     final int screenHeight = tileSize * maxScreenRow;
 
     Image cards;
-    Image spinnerr;
     boolean changes;
     int int_random;
     int FPS = 60;
     Thread gameThread;
+    boolean start =true;
+    JLabel label1;
+    JLabel label2;
+    JLabel label3;
+
     player p1 = new player(200000, " ", 10000, " ", 0, 0, this, 90, 45,0);
     player p2 = new player(200000, " ", 20000, " ", 0, 0, this, 90, 45,0);
     boolean go = true;
@@ -37,25 +52,17 @@ public class GamePanel extends JPanel {
     }
 
     public void startGameThread() {
+
         gameThread = new Thread() {
 
             public void run() {
+                if(start ==false){
                 while(p1.getSteps() < 2700 || p2.getSteps() < 2700) {
                     Random rand = new Random();
                     int upperbound = 10;
                     int_random = rand.nextInt(upperbound) + 1;
                     //int_random =7;
-                    spinner spinOne = new spinner();
-                    spinnerr = spinOne.showSpin(int_random);
-                    spin = true;
                     p1.setCnt(int_random);
-                    try {
-                        repaint();
-                        gameThread.currentThread().sleep(8 * 1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    spin = false;
                     while (p1.getCnt() > 0 && p1.getSteps() < 2700) {
                         movePieces();
                         System.out.println(p1.getCnt());
@@ -67,6 +74,8 @@ public class GamePanel extends JPanel {
                         }
                     }
                     p1.setCnt(0);
+
+
                     if(p1.getSteps() == 586 || p1.getSteps() == 851 || p1.getSteps() == 951 || p1.getSteps() == 1291 || p1.getSteps() == 1561){
                         p1.setBabies(1);
                     }else if(p1.getSteps() == 1056 || p1.getSteps() == 1221 || p1.getSteps() == 1781 || p1.getSteps() == 2091){
@@ -160,17 +169,7 @@ public class GamePanel extends JPanel {
                     rand = new Random();
                     upperbound = 10;
                     int_random = rand.nextInt(upperbound) + 1;
-                    spinner spinTwo = new spinner();
-                    spinnerr = spinTwo.showSpin(int_random);
-                    spin = true;
                     p2.setCnt(int_random);
-                    try {
-                        repaint();
-                        gameThread.currentThread().sleep(8* 1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    spin=false;
                     while (p2.getCnt() > 0 && p2.getSteps() < 2700) {
                         movePieces();
                         System.out.println(p2.getCnt());
@@ -254,6 +253,7 @@ public class GamePanel extends JPanel {
                 System.out.println("Player 1's Number of Children: " + p1.getBabies());
                 System.out.println("Player 2's Number of Children: " + p2.getBabies());
                 System.out.println("Player 2's Money: "+ "$" + p2.getMoney());
+                }// end of true false if
             }
         };
 
@@ -263,6 +263,9 @@ public class GamePanel extends JPanel {
 
 
 
+public void setCard(Image card){
+
+}
     //erika eat cheeseee
 //test pushh
 
@@ -282,32 +285,65 @@ public class GamePanel extends JPanel {
 
     }
 
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g)  {
         super.paintComponent(g);
-
-        // Create a Graphics2D object from the image
-
         Graphics2D g2 = (Graphics2D) g;
+
+
+
 
         Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoard.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
-        AffineTransform identity = new AffineTransform();
 
-        Graphics2D g2d = (Graphics2D) g;
-        Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
-        g2.drawImage(actionCard, 720,17, 125  , 125, this);
 
-        Image houseCard  = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
-        g2.drawImage(houseCard, 685,157, 170  , 85, this);
+        if(start ==true)
+        {
+            JLabel label1;
+            label1 = new JLabel();
+            label1.setBounds(100,150,200,300);
+            label1.setBackground(Color.black);
+            label1.setOpaque(true);
+            this.add(label1);
+            this.setVisible(true);
 
-        Image careerCard  = Toolkit.getDefaultToolkit().getImage("careerCard.PNG");
-        g2.drawImage(careerCard, 685,246, 170  , 85, this);
+            JLabel label2;
+            label2 = new JLabel();
+            label2.setBounds(340,150,200,300);
+            label2.setBackground(Color.black);
+            label2.setOpaque(true);
+            this.add(label2);
+            this.setVisible(true);
+
+            JLabel label3;
+            label3 = new JLabel();
+            label3.setBounds(580,150,200,300);
+            label3.setBackground(Color.black);
+            label3.setOpaque(true);
+            this.add(label3);
+            this.setVisible(true);
+
+        }
+
+
+        Image spin = Toolkit.getDefaultToolkit().getImage("10.gif");
+        //g2.rotate(Math.toRadians(30), 10,10);
+        g2.drawImage(spin,12,271,200,200,this);
+
+            Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
+        g2.drawImage(actionCard,720,17,125,125,this);
+
+            Image houseCard = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
+        g2.drawImage(houseCard,685,157,170,85,this);
+
+            Image careerCard = Toolkit.getDefaultToolkit().getImage("careerCard.PNG");
+        g2.drawImage(careerCard,685,246,170,85,this);
+
+
+
 
 
         if (p1 != null){
             p1.drawSelf(g, 1);
-            //Image boyPeg = Toolkit.getDefaultToolkit().getImage("boyPeg.png"); /*the image cannot be in the SRC folder*/
-            //g.drawImage(boyPeg, 80 , 70 , 50,50,this );
         }
         if(p2 != null){
             p2.drawSelf(g, 2);
@@ -315,10 +351,6 @@ public class GamePanel extends JPanel {
         }
         if(changes){
             g2.drawImage(cards, 300,200, 200  , 200, this);
-        }
-
-        if(spin){
-            g2.drawImage(spinnerr, 30,280, 155  , 155, this);
         }
 
 
@@ -330,7 +362,37 @@ public class GamePanel extends JPanel {
     }
 
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        Point point = e.getPoint();
 
+        if(label1.getBounds().contains(point)){
+            label1.setVisible(false);
+            label2.setVisible(false);
+            label3.setVisible(false);
+            start = false;
+        }
 
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }
 

@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76b4e7eb-ade9-44b2-9c9b-eb8583023b7a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/10__2__AdobeExpress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1__1__AdobeExpress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2__1__AdobeExpress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/3__1__AdobeExpress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4__1__AdobeExpress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/5__1__AdobeExpress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/6mp4_AdobeExpress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/8__1__AdobeExpress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/9__1__AdobeExpress.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ezgif.com-gif-maker.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spinner.java" afterDir="false" />
+    <list default="true" id="76b4e7eb-ade9-44b2-9c9b-eb8583023b7a" name="Changes" comment="Erika commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
     </list>
@@ -53,30 +42,34 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/18328/IdeaProjects/finalGameOfLife"
+    "jdk.selected.JAVA_MODULE": "19",
+    "last_opened_file_path": "C:/Users/s791072/IdeaProjects/finalGameOfLife"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\18328\IdeaProjects\finalGameOfLife" />
       <recent name="C:\Users\s791072\IdeaProjects\finalGameOfLife" />
       <recent name="C:\Users\bsalv\IdeaProjects\finalGameOfLife" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\18328\IdeaProjects\finalGameOfLife" />
       <recent name="C:\Users\s722971\IdeaProjects\finalGameOfLife" />
       <recent name="C:\Users\bsalv\IdeaProjects\finalGameOfLife" />
       <recent name="C:\Users\bsalv\IdeaProjects\finalGameOfLife\src" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="finalGameOfLife" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -199,14 +192,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670442045803</updated>
     </task>
-    <task id="LOCAL-00017" summary="new Commit">
-      <created>1670974489610</created>
+    <task id="LOCAL-00017" summary="Erika commit">
+      <created>1672860430272</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1670974489610</updated>
+      <updated>1672860430272</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Erika commit">
+      <created>1672860740866</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1672860740866</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -221,9 +221,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Erika commit" />
     <MESSAGE value="new Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="new Commit" />
+    <MESSAGE value="Erika commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Erika commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
