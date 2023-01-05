@@ -67,6 +67,7 @@ public class GamePanel extends JPanel implements MouseListener{
                     label1.setOpaque(true);
                     careerCard one = new careerCard();
                     Image temp1 = one.pickCard();
+                    Image dup1 = temp1;
                     System.out.println("one " + one.getValue());
                     int money1 = one.getValue();
                     System.out.println(money1);
@@ -84,7 +85,8 @@ public class GamePanel extends JPanel implements MouseListener{
                     label2.setOpaque(true);
                     careerCard two = new careerCard();
                     Image temp2 = two.pickCard();
-                    while(temp2 == temp1){
+                    Image dup2 = temp2;
+                    while(temp2 == dup1){
                         temp2 = two.pickCard();
                     }
                     System.out.println("two " + two.getValue());
@@ -103,7 +105,7 @@ public class GamePanel extends JPanel implements MouseListener{
                     label3.setOpaque(true);
                     careerCard three = new careerCard();
                     Image temp3 = three.pickCard();
-                    while(temp3 == temp1 || temp3 == temp2){
+                    while(temp3 == dup1 || temp3 == dup2){
                         temp3 = three.pickCard();
                     }
                     System.out.println("three " + three.getValue());
@@ -255,6 +257,7 @@ public class GamePanel extends JPanel implements MouseListener{
                     label1.setOpaque(true);
                     careerCard one = new careerCard();
                     Image temp1 = one.pickCard();
+                    Image dup1 = temp1;
                     System.out.println("one " + one.getValue());
                     int money1 = one.getValue();
                     System.out.println(money1);
@@ -272,7 +275,8 @@ public class GamePanel extends JPanel implements MouseListener{
                     label2.setOpaque(true);
                     careerCard two = new careerCard();
                     Image temp2 = two.pickCard();
-                    while(temp2 == temp1){
+                    Image dup2 = temp2;
+                    while(temp2 == dup1){
                         temp2 = two.pickCard();
                     }
 
@@ -292,7 +296,7 @@ public class GamePanel extends JPanel implements MouseListener{
                     label3.setOpaque(true);
                     careerCard three = new careerCard();
                     Image temp3 = three.pickCard();
-                    while(temp3 == temp1 || temp3 == temp2){
+                    while(temp3 == dup1 || temp3 == dup2){
                         temp3 = three.pickCard();
                     }
                     System.out.println("three " + three.getValue());
@@ -316,10 +320,6 @@ public class GamePanel extends JPanel implements MouseListener{
                             label2.setVisible(false);
                             label1.setVisible(false);
                             //}
-
-
-
-
                         }
 
                         @Override
@@ -432,6 +432,12 @@ public class GamePanel extends JPanel implements MouseListener{
                         e.printStackTrace();
                     }
 
+                }
+                try {
+                    repaint();
+                    gameThread.currentThread().sleep(1 * 1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
                 if(!start && !player2){
                 while(p1.getSteps() < 2700 || p2.getSteps() < 2700) {
