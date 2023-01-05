@@ -286,6 +286,7 @@ public class player {
 
     public void setSalary(int val){
         salary = val;
+
     }
 
     public void setCareer(String car){

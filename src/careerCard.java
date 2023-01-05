@@ -7,8 +7,9 @@ import java.util.Random;
 public class careerCard {
     Image[] cc;
     int index;
+    int value;
     public careerCard(){
-        cc = new Image[23];
+        cc = new Image[14];
         cc[0] = Toolkit.getDefaultToolkit().getImage("athlete.PNG");
         cc[1] = Toolkit.getDefaultToolkit().getImage("brainSurgeon.PNG");
         cc[2] = Toolkit.getDefaultToolkit().getImage("farmer.PNG");
@@ -24,6 +25,7 @@ public class careerCard {
         cc[12] = Toolkit.getDefaultToolkit().getImage("teacher.PNG");
         cc[13] = Toolkit.getDefaultToolkit().getImage("vet.PNG");
 
+value = 0;
     }
 
     public Image pickCard(){
@@ -32,6 +34,8 @@ public class careerCard {
         int int_random = rand.nextInt(upperbound) + 1;
         int_random-=1;
         setIndex(int_random);
+        setValue();
+
         return cc[int_random];
     }
 
@@ -42,6 +46,46 @@ public class careerCard {
     public int getIndex(){
         return index;
     }
+
+    public void setValue(){
+        int val = getIndex();
+        if(val == 0){
+            value =  100000;
+        }else if(val==1){
+            value = 130000;
+        }else if(val == 2){
+            value = 80000;
+        }else if(val == 3){
+            value = 70000;
+        }else if(val == 4){
+            value = 100000;
+        }else if(val == 5){
+            value = 120000;
+        }else if(val == 6){
+            value = 60000;
+        }else if(val == 7){
+            value = 80000;
+        }else if(val == 8){
+            value = 100000;
+        }else if(val == 9){
+            value = 80000;
+        }else if(val == 10){
+            value = 110000;
+        }else if(val == 11){
+            value = 90000;
+        }else if(val == 12){
+            value = 90000;
+        }else{
+            value = 100000;
+        }
+
+    }
+
+    public int getValue(){
+
+        return value;
+    }
+
 
 }
 

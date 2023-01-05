@@ -36,12 +36,13 @@ public class GamePanel extends JPanel implements MouseListener{
     int FPS = 60;
     Thread gameThread;
     boolean start =true;
+    boolean player2 = false;
     JLabel label1;
     JLabel label2;
     JLabel label3;
 
-    player p1 = new player(200000, " ", 10000, " ", 0, 0, this, 90, 45,0);
-    player p2 = new player(200000, " ", 20000, " ", 0, 0, this, 90, 45,0);
+    player p1 = new player(200000, " ", 0, " ", 0, 0, this, 90, 45,0);
+    player p2 = new player(200000, " ", 0, " ", 0, 0, this, 90, 45,0);
     boolean go = true;
     public GamePanel() {
 
@@ -56,7 +57,383 @@ public class GamePanel extends JPanel implements MouseListener{
         gameThread = new Thread() {
 
             public void run() {
-                if(start ==false){
+                if(start)
+                {
+
+                    JLabel label1;
+                    label1 = new JLabel();
+                    label1.setBounds(100,150,200,300);
+                    label1.setBackground(Color.black);
+                    label1.setOpaque(true);
+                    careerCard one = new careerCard();
+                    Image temp1 = one.pickCard();
+                    System.out.println("one " + one.getValue());
+                    int money1 = one.getValue();
+                    System.out.println(money1);
+                    temp1 = temp1.getScaledInstance(200, 300, Image.SCALE_SMOOTH);
+                    ImageIcon icon1 = new ImageIcon(temp1);
+                    label1.setIcon(icon1);
+                    add(label1);
+                    setVisible(true);
+
+                    JLabel label2;
+                    label2 = new JLabel();
+
+                    label2.setBounds(340,150,200,300);
+                    label2.setBackground(Color.black);
+                    label2.setOpaque(true);
+                    careerCard two = new careerCard();
+                    Image temp2 = two.pickCard();
+                    while(temp2 == temp1){
+                        temp2 = two.pickCard();
+                    }
+                    System.out.println("two " + two.getValue());
+                    int money2 = two.getValue();
+                    System.out.println(money2);
+                    temp2 = temp2.getScaledInstance(200, 300, Image.SCALE_SMOOTH);
+                    ImageIcon icon2 = new ImageIcon(temp2);
+                    label2.setIcon(icon2);
+                    add(label2);
+                    setVisible(true);
+
+                    JLabel label3;
+                    label3 = new JLabel();
+                    label3.setBounds(580,150,200,300);
+                    label3.setBackground(Color.black);
+                    label3.setOpaque(true);
+                    careerCard three = new careerCard();
+                    Image temp3 = three.pickCard();
+                    while(temp3 == temp1 || temp3 == temp2){
+                        temp3 = three.pickCard();
+                    }
+                    System.out.println("three " + three.getValue());
+                    int money3 = three.getValue();
+                    System.out.println(money3);
+                    temp3 = temp3.getScaledInstance(200, 300, Image.SCALE_SMOOTH);
+                    ImageIcon icon3 = new ImageIcon(temp3);
+                    label3.setIcon(icon3);
+                    add(label3);
+
+                    label3.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Point p = new Point();
+                            start=false;
+                            // while(label1.isVisible()){
+
+                            p1.setSalary(money3);
+                            System.out.println(p1.getSalary());
+                            label3.setVisible(false);
+                           label2.setVisible(false);
+                           label1.setVisible(false);
+                            //}
+                            player2=true;
+
+
+
+
+                        }
+
+                        @Override
+                        public void mousePressed(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+
+                        }
+                    });
+                    label2.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Point p = new Point();
+                            System.out.println("Clicked");
+                            start=false;
+                            p1.setSalary(money2);
+                            System.out.println(p1.getSalary());
+                           // while(label1.isVisible()){
+                            label3.setVisible(false);
+                            label2.setVisible(false);
+                            label1.setVisible(false);
+                            //}
+                            player2=true;
+
+
+
+
+                        }
+
+                        @Override
+                        public void mousePressed(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+
+                        }
+                    });
+
+                    label1.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Point p = new Point();
+                            System.out.println("Clicked");
+                            start=false;
+                            p1.setSalary(one.getValue());
+                            System.out.print(p1.getSalary());
+                            // while(label1.isVisible()){
+                            label3.setVisible(false);
+                            label2.setVisible(false);
+                            label1.setVisible(false);
+                            player2 = true;
+                            //}
+
+
+
+
+                        }
+
+                        @Override
+                        public void mousePressed(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+
+                        }
+                    });
+                }
+                while(start){
+                    repaint();
+                    try {
+                        gameThread.sleep(1000 / FPS);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+                if(player2)
+                {
+
+                    JLabel label1;
+                    label1 = new JLabel();
+                    label1.setBounds(100,150,200,300);
+                    label1.setBackground(Color.black);
+                    label1.setOpaque(true);
+                    careerCard one = new careerCard();
+                    Image temp1 = one.pickCard();
+                    System.out.println("one " + one.getValue());
+                    int money1 = one.getValue();
+                    System.out.println(money1);
+                    temp1 = temp1.getScaledInstance(200, 300, Image.SCALE_SMOOTH);
+                    ImageIcon icon1 = new ImageIcon(temp1);
+                    label1.setIcon(icon1);
+                    add(label1);
+                    setVisible(true);
+
+                    JLabel label2;
+                    label2 = new JLabel();
+
+                    label2.setBounds(340,150,200,300);
+                    label2.setBackground(Color.black);
+                    label2.setOpaque(true);
+                    careerCard two = new careerCard();
+                    Image temp2 = two.pickCard();
+                    while(temp2 == temp1){
+                        temp2 = two.pickCard();
+                    }
+
+                    System.out.println("two " + two.getValue());
+                    int money2 = two.getValue();
+                    System.out.println(money2);
+                    temp2 = temp2.getScaledInstance(200, 300, Image.SCALE_SMOOTH);
+                    ImageIcon icon2 = new ImageIcon(temp2);
+                    label2.setIcon(icon2);
+                    add(label2);
+                    setVisible(true);
+
+                    JLabel label3;
+                    label3 = new JLabel();
+                    label3.setBounds(580,150,200,300);
+                    label3.setBackground(Color.black);
+                    label3.setOpaque(true);
+                    careerCard three = new careerCard();
+                    Image temp3 = three.pickCard();
+                    while(temp3 == temp1 || temp3 == temp2){
+                        temp3 = three.pickCard();
+                    }
+                    System.out.println("three " + three.getValue());
+                    int money3 = three.getValue();
+                    System.out.println(money3);
+                    temp3 = temp3.getScaledInstance(200, 300, Image.SCALE_SMOOTH);
+                    ImageIcon icon3 = new ImageIcon(temp3);
+                    label3.setIcon(icon3);
+                    add(label3);
+
+                    label3.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Point p = new Point();
+                            player2=false;
+                            // while(label1.isVisible()){
+
+                            p2.setSalary(money3);
+                            System.out.println(p2.getSalary());
+                            label3.setVisible(false);
+                            label2.setVisible(false);
+                            label1.setVisible(false);
+                            //}
+
+
+
+
+                        }
+
+                        @Override
+                        public void mousePressed(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+
+                        }
+                    });
+                    label2.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Point p = new Point();
+                            System.out.println("Clicked");
+                            player2=false;
+                            p2.setSalary(money2);
+                            System.out.println(p2.getSalary());
+                            // while(label1.isVisible()){
+                            label3.setVisible(false);
+                            label2.setVisible(false);
+                            label1.setVisible(false);
+                            //}
+
+
+
+
+                        }
+
+                        @Override
+                        public void mousePressed(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+
+                        }
+                    });
+
+                    label1.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Point p = new Point();
+                            System.out.println("Clicked");
+                            player2=false;
+                            p2.setSalary(one.getValue());
+                            System.out.print(p2.getSalary());
+                            // while(label1.isVisible()){
+                            label3.setVisible(false);
+                            label2.setVisible(false);
+                            label1.setVisible(false);
+
+                            //}
+
+
+
+
+                        }
+
+                        @Override
+                        public void mousePressed(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+
+                        }
+                    });
+
+                }
+                while(player2){
+                    repaint();
+                    try {
+                        gameThread.sleep(1000 / FPS);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+                if(!start && !player2){
                 while(p1.getSteps() < 2700 || p2.getSteps() < 2700) {
                     Random rand = new Random();
                     int upperbound = 10;
@@ -289,40 +666,9 @@ public void setCard(Image card){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-
-
-
         Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoard.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
 
-
-        if(start ==true)
-        {
-            JLabel label1;
-            label1 = new JLabel();
-            label1.setBounds(100,150,200,300);
-            label1.setBackground(Color.black);
-            label1.setOpaque(true);
-            this.add(label1);
-            this.setVisible(true);
-
-            JLabel label2;
-            label2 = new JLabel();
-            label2.setBounds(340,150,200,300);
-            label2.setBackground(Color.black);
-            label2.setOpaque(true);
-            this.add(label2);
-            this.setVisible(true);
-
-            JLabel label3;
-            label3 = new JLabel();
-            label3.setBounds(580,150,200,300);
-            label3.setBackground(Color.black);
-            label3.setOpaque(true);
-            this.add(label3);
-            this.setVisible(true);
-
-        }
 
 
         Image spin = Toolkit.getDefaultToolkit().getImage("10.gif");
@@ -364,14 +710,6 @@ public void setCard(Image card){
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        Point point = e.getPoint();
-
-        if(label1.getBounds().contains(point)){
-            label1.setVisible(false);
-            label2.setVisible(false);
-            label3.setVisible(false);
-            start = false;
-        }
 
     }
 
