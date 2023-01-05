@@ -703,7 +703,7 @@ public void setCard(Image card){
 
 
         if(spin){
-            g2.drawImage(spinnerr, 15 , 300 , 170 , 140 , this);
+            g2.drawImage(spinnerr, 12 , 300 , 190 , 160 , this);
         }
         Image spin = Toolkit.getDefaultToolkit().getImage("10.gif");
         //g2.rotate(Math.toRadians(30), 10,10);
