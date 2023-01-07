@@ -46,6 +46,7 @@ public class GamePanel extends JPanel implements MouseListener{
     player p1 = new player(200000, " ", 0, " ", 0, 0, this, 90, 45,0);
     player p2 = new player(200000, " ", 0, " ", 0, 0, this, 90, 45,0);
     boolean go = true;
+    JLabel player1;
     public GamePanel() {
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -62,6 +63,15 @@ public class GamePanel extends JPanel implements MouseListener{
                 if(start)
                 {
 
+                     player1 = new JLabel("The Label", SwingConstants.CENTER);
+                    player1.setBounds(300, 50, 250, 70);
+                    Font font = new Font("SansSerif", Font.BOLD, 18);
+                    player1.setFont(font);
+                    player1.setBackground(Color.black);
+                    player1.setOpaque(true);
+                    player1.setText("Player 1 - Select a Career");
+                    player1.setVisible(true);
+                    add(player1);
                     JLabel label1;
                     label1 = new JLabel();
                     label1.setBounds(100,150,200,300);
@@ -124,12 +134,17 @@ public class GamePanel extends JPanel implements MouseListener{
                             Point p = new Point();
                             start=false;
                             // while(label1.isVisible()){
+                            player1.setText("Player 2 - Select a career");
+                            player1.setBounds(300, 50, 250, 70);
 
+                            //add(player1);
                             p1.setSalary(money3);
                             System.out.println(p1.getSalary());
                             label3.setVisible(false);
                            label2.setVisible(false);
                            label1.setVisible(false);
+                           // player1.setVisible(false);
+
                             //}
                             player2=true;
 
@@ -171,6 +186,10 @@ public class GamePanel extends JPanel implements MouseListener{
                             label2.setVisible(false);
                             label1.setVisible(false);
                             //}
+                           // player1.setVisible(false);
+                            player1.setText("Player 2 - Select a career");
+                            player1.setBounds(300, 50, 250, 70);
+                            //add(player1);
                             player2=true;
 
 
@@ -207,10 +226,15 @@ public class GamePanel extends JPanel implements MouseListener{
                             start=false;
                             p1.setSalary(one.getValue());
                             System.out.print(p1.getSalary());
+                            player1.setBounds(300, 50, 250, 70);
+
                             // while(label1.isVisible()){
                             label3.setVisible(false);
                             label2.setVisible(false);
                             label1.setVisible(false);
+                            player1.setText("Player 2 - Select a career");
+                            //add(player1);
+                            //player1.setVisible(false);
                             player2 = true;
                             //}
 
@@ -251,6 +275,7 @@ public class GamePanel extends JPanel implements MouseListener{
                 }
                 if(player2)
                 {
+
 
                     JLabel label1;
                     label1 = new JLabel();
@@ -321,6 +346,7 @@ public class GamePanel extends JPanel implements MouseListener{
                             label3.setVisible(false);
                             label2.setVisible(false);
                             label1.setVisible(false);
+                            player1.setVisible(false);
                             //}
                         }
 
@@ -356,6 +382,8 @@ public class GamePanel extends JPanel implements MouseListener{
                             label3.setVisible(false);
                             label2.setVisible(false);
                             label1.setVisible(false);
+                            player1.setVisible(false);
+
                             //}
 
 
@@ -393,6 +421,8 @@ public class GamePanel extends JPanel implements MouseListener{
                             p2.setSalary(one.getValue());
                             System.out.print(p2.getSalary());
                             // while(label1.isVisible()){
+                            player1.setVisible(false);
+
                             label3.setVisible(false);
                             label2.setVisible(false);
                             label1.setVisible(false);
@@ -710,7 +740,7 @@ public void setCard(Image card){
         g2.drawImage(spin,12,271,200,200,this);
 
             Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
-        g2.drawImage(actionCard,720,17,125,125,this);
+        g2.drawImage(actionCard,742,10,110,145,this);
 
             Image houseCard = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
         g2.drawImage(houseCard,685,157,170,85,this);
