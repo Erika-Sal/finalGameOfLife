@@ -662,6 +662,7 @@ public class GamePanel extends JPanel implements MouseListener{
                 System.out.println("Player 1's Number of Children: " + p1.getBabies());
                 System.out.println("Player 2's Number of Children: " + p2.getBabies());
                 System.out.println("Player 2's Money: "+ "$" + p2.getMoney());
+                winner();
                 }// end of true false if
             }
         };
@@ -671,6 +672,24 @@ public class GamePanel extends JPanel implements MouseListener{
     }
 
 
+    public void winner(){
+
+        if(p1.getMoney() > p2.getMoney()){
+            JLabel win = new JLabel("Player 1 Wins");
+            win.setBounds(100,150,200,300);
+            win.setBackground(Color.black);
+            win.setVisible(true);
+            add(win);
+        }else{
+            JLabel win = new JLabel("Player 2 Wins");
+            win.setBounds(100,150,200,300);
+            win.setBackground(Color.black);
+            win.setVisible(true);
+            add(win);
+        }
+
+
+    }
 
 public void setCard(Image card){
 
@@ -710,7 +729,7 @@ public void setCard(Image card){
         g2.drawImage(spin,12,271,200,200,this);
 
             Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
-        g2.drawImage(actionCard,720,17,125,125,this);
+        g2.drawImage(actionCard,740,14,113,185,this);
 
             Image houseCard = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
         g2.drawImage(houseCard,685,157,170,85,this);
