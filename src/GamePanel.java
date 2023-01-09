@@ -710,7 +710,7 @@ public void setCard(Image card){
         g2.drawImage(spin,12,271,200,200,this);
 
             Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
-        g2.drawImage(actionCard,742,7,110,145,this);
+        g2.drawImage(actionCard,720,17,125,125,this);
 
             Image houseCard = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
         g2.drawImage(houseCard,685,157,170,85,this);
