@@ -45,6 +45,9 @@ public class GamePanel extends JPanel implements MouseListener{
     JLabel label2;
     JLabel label3;
 
+    boolean one = false;
+    boolean two = false;
+
     player p1 = new player(200000, " ", 0, " ", 0, 0, this, 90, 45,0);
     player p2 = new player(200000, " ", 0, " ", 0, 0, this, 90, 45,0);
     boolean go = true;
@@ -69,7 +72,7 @@ public class GamePanel extends JPanel implements MouseListener{
                     player1.setBounds(300, 50, 250, 70);
                     Font font = new Font("SansSerif", Font.BOLD, 18);
                     player1.setFont(font);
-                    player1.setBackground(Color.black);
+                    player1.setBackground(Color.WHITE);
                     player1.setOpaque(true);
                     player1.setText("Player 1 - Select a Career");
                     player1.setVisible(true);
@@ -77,7 +80,7 @@ public class GamePanel extends JPanel implements MouseListener{
                     JLabel label1;
                     label1 = new JLabel();
                     label1.setBounds(100,150,200,300);
-                    label1.setBackground(Color.black);
+                    label1.setBackground(Color.WHITE);
                     label1.setOpaque(true);
                     careerCard one = new careerCard();
                     Image temp1 = one.pickCard();
@@ -799,16 +802,10 @@ public class GamePanel extends JPanel implements MouseListener{
 
     public void winner(){
 
-        if (p1.getMoney() > p2.getMoney()) {
-             win1 = true;
-            repaint();
-        }else{
-             win2 = true;
-            repaint();
-        }
-
-
-
+        if(p1.getMoney() > p2.getMoney()){
+            one = true;}
+        else
+            two = true;
 
     }
 
@@ -838,18 +835,19 @@ public class GamePanel extends JPanel implements MouseListener{
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        if(win1){
-            System.out.println("Win1");
-            Image onne = Toolkit.getDefaultToolkit().getImage("P1wins.PNG"); /*the image cannot be in the SRC folder*/
-            g2.drawImage(onne,35,35,800,510,this);
 
+        if(one == true)
+        {
+            Image p1 = Toolkit.getDefaultToolkit().getImage("p1wins.PNG");
+            g2.drawImage(p1,35,35,800,510,this);
         }
-        if(win2){
-            System.out.println("win2");
-            Image twoo = Toolkit.getDefaultToolkit().getImage("P2wins.PNG"); /*the image cannot be in the SRC folder*/
-            g2.drawImage(twoo,35,35,800,510,this);
+        if(two == true)
+        {
+            Image p2 = Toolkit.getDefaultToolkit().getImage("p2wins.PNG");
+            g2.drawImage(p2,35,35,800,510,this);
+        }
 
-        }
+
         Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoardd.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
 
@@ -885,7 +883,7 @@ public class GamePanel extends JPanel implements MouseListener{
 
         }
         if(changes){
-            g2.drawImage(cards, 300,200, 200  , 200, this);
+            g2.drawImage(cards, 300,100, 250  , 350, this);
         }
 
 
