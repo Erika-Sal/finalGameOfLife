@@ -35,6 +35,8 @@ public class GamePanel extends JPanel implements MouseListener{
     boolean spin;
     boolean changes;
     int int_random;
+    boolean win1 = false;
+    boolean win2 = false;
     int FPS = 60;
     Thread gameThread;
     boolean start =true;
@@ -63,7 +65,7 @@ public class GamePanel extends JPanel implements MouseListener{
                 if(start)
                 {
 
-                     player1 = new JLabel("The Label", SwingConstants.CENTER);
+                    player1 = new JLabel("The Label", SwingConstants.CENTER);
                     player1.setBounds(300, 50, 250, 70);
                     Font font = new Font("SansSerif", Font.BOLD, 18);
                     player1.setFont(font);
@@ -141,9 +143,9 @@ public class GamePanel extends JPanel implements MouseListener{
                             p1.setSalary(money3);
                             System.out.println(p1.getSalary());
                             label3.setVisible(false);
-                           label2.setVisible(false);
-                           label1.setVisible(false);
-                           // player1.setVisible(false);
+                            label2.setVisible(false);
+                            label1.setVisible(false);
+                            // player1.setVisible(false);
 
                             //}
                             player2=true;
@@ -181,12 +183,12 @@ public class GamePanel extends JPanel implements MouseListener{
                             start=false;
                             p1.setSalary(money2);
                             System.out.println(p1.getSalary());
-                           // while(label1.isVisible()){
+                            // while(label1.isVisible()){
                             label3.setVisible(false);
                             label2.setVisible(false);
                             label1.setVisible(false);
                             //}
-                           // player1.setVisible(false);
+                            // player1.setVisible(false);
                             player1.setText("Player 2 - Select a career");
                             player1.setBounds(300, 50, 250, 70);
                             //add(player1);
@@ -472,226 +474,320 @@ public class GamePanel extends JPanel implements MouseListener{
                     throw new RuntimeException(e);
                 }
                 if(!start && !player2){
-                while(p1.getSteps() < 2700 || p2.getSteps() < 2700) {
-                    Random rand = new Random();
-                    int upperbound = 10;
-                    if(p1.getSteps() < 2700){
-                        int_random = rand.nextInt(upperbound) + 1;
-                        spin = true;
-                        spinner temp = new spinner();
-                        spinnerr = temp.showSpin(int_random);
-                        repaint();
+                    while(p1.getSteps() < 2700 || p2.getSteps() < 2700) {
+                        Random rand = new Random();
+                        int upperbound = 10;
+                        spin=false;
+                        if(p1.getSteps() < 2700 && !spin){
+                            int_random = rand.nextInt(upperbound) + 1;
+                            spinner temp = new spinner();
+                            spinnerr = temp.showSpin(int_random);
+                            Image idc =  Toolkit.getDefaultToolkit().getImage("tempsnip.png");
+                            idc = idc.getScaledInstance(190, 160, Image.SCALE_SMOOTH);
+                            ImageIcon spin1 = new ImageIcon(idc);
+
+                            JLabel labelspin1;
+                            labelspin1 = new JLabel();
+                            labelspin1.setVisible(true);
+                            labelspin1.setBounds(12 , 300 , 190 , 160);
+                            labelspin1.setBackground(Color.blue);
+                            labelspin1.setOpaque(true);
+                            labelspin1.setIcon(spin1);
+                            add(labelspin1);
+                            setVisible(true);
+                            repaint();
+                            labelspin1.addMouseListener(new MouseListener() {
+                                @Override
+                                public void mouseClicked(MouseEvent e) {
+                                    spin = true;
+                                    labelspin1.setVisible(false);
+                                }
+
+                                @Override
+                                public void mousePressed(MouseEvent e) {
+
+                                }
+
+                                @Override
+                                public void mouseReleased(MouseEvent e) {
+
+                                }
+
+                                @Override
+                                public void mouseEntered(MouseEvent e) {
+
+                                }
+
+                                @Override
+                                public void mouseExited(MouseEvent e) {
+
+                                }
+                            });
+                           while(!spin){
+                               try {
+                                   gameThread.currentThread().sleep(9 * 1000);
+                               } catch (InterruptedException e) {
+                                   throw new RuntimeException(e);
+                               }
+                           }
+
+                            spin = false;
+                            //int_random =7;
+                            p1.setCnt(int_random);
+                        }
+
+                        while (p1.getCnt() > 0 && p1.getSteps() < 2700) {
+                            movePieces();
+                            System.out.println(p1.getCnt());
+                            repaint();
+                            try {
+                                gameThread.sleep(1000 / FPS);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+
+                        p1.setCnt(0);
+
+
+                        if(p1.getSteps() == 586 || p1.getSteps() == 851 || p1.getSteps() == 951 || p1.getSteps() == 1291 || p1.getSteps() == 1561){
+                            p1.setBabies(1);
+
+                        }else if(p1.getSteps() == 1056 || p1.getSteps() == 1221 || p1.getSteps() == 1781 || p1.getSteps() == 2091){
+                            p1.setBabies(2);
+                        }else if(p1.getSteps() < 2700 && p1.getSteps() != 186 && p1.getSteps() !=416 && p1.getSteps() != 546 && p1.getSteps() != 751 && p1.getSteps() != 1141 && p1.getSteps() != 1681 && p1.getSteps()!=1881 && p1.getSteps() != 2471){
+                            actionCard a = new actionCard();
+                            cards = a.pickCard();
+                            int val = a.getIndex();
+                            //System.out.println(val);
+                            if(val == 0){
+                                p1.subMoney(50000);
+                                // System.out.println(p1.getMoney());
+                            }else if(val == 1){
+                                p1.subMoney(30000);
+                                // System.out.println(p1.getMoney());
+                            }else if(val == 2){
+                                p1.subMoney(50000);
+                                // System.out.println(p1.getMoney());
+                            }else if(val == 3){
+                                p1.addMoney(50000);
+                                // System.out.println(p1.getMoney());
+                            }else if(val == 4){
+                                p1.subMoney(50000);
+                                //  System.out.println(p1.getMoney());
+                            }else if(val == 5){
+                                p1.subMoney(50000);
+                                // System.out.println(p1.getMoney());
+                            }else if(val == 6){
+                                p1.addMoney(60000);
+                                // System.out.println(p1.getMoney());
+                            }else if(val == 7){
+                                p1.subMoney(50000);
+                                //  System.out.println(p1.getMoney());
+                            }else if(val == 8){
+                                p1.subMoney(50000);
+                                //  System.out.println(p1.getMoney());
+                            }else if(val == 9){
+                                p1.addMoney(70000);
+                                //   System.out.println(p1.getMoney());
+                            }else if(val == 10){
+                                p1.subMoney(60000);
+                                //System.out.println(p1.getMoney());
+                            }else if(val == 11){
+                                p1.subMoney(80000);
+                                System.out.println(p1.getMoney());
+                            }else if(val == 12){
+                                p1.subMoney(150000);
+                                System.out.println(p1.getMoney());
+                                p1.getMoney();
+                            }else if(val == 13){
+                                p1.subMoney(40000);
+                                System.out.println(p1.getMoney());
+                            }else if(val == 14){
+                                p1.subMoney(80000);
+                                System.out.println(p1.getMoney());
+                            }else if(val == 15){
+                                p1.addMoney(70000);
+                                System.out.println(p1.getMoney());
+                            }else if(val == 16){
+                                p1.addMoney(80000);
+                                System.out.println(p1.getMoney());
+                            }else if(val == 17){
+                                p1.addMoney(100000);
+                                System.out.println(p1.getMoney());
+                            }else if(val == 18){
+                                p1.subMoney(70000);
+                                System.out.println(p1.getMoney());
+                            }else if(val == 19){
+                                p1.subMoney(50000);
+                                System.out.println(p1.getMoney());
+                            }else if(val == 20){
+                                p1.addMoney(50000);
+                                System.out.println(p1.getMoney());
+                            }else if(val == 21){
+                                p1.addMoney(70000);
+                                System.out.println(p1.getMoney());
+                            }else{
+                                p1.addMoney(80000);
+                                System.out.println(p1.getMoney());
+                            }
+                            changes = true;
+                        }
                         try {
-                            gameThread.currentThread().sleep(9 * 1000);
+                            repaint();
+                            gameThread.currentThread().sleep(5 * 1000);
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
-                        spin = false;
-                        //int_random =7;
-                        p1.setCnt(int_random);
-                    }
-
-                    while (p1.getCnt() > 0 && p1.getSteps() < 2700) {
-                        movePieces();
-                        System.out.println(p1.getCnt());
+                        changes = false;
                         repaint();
-                        try {
-                            gameThread.sleep(1000 / FPS);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+                        if(p2.getSteps() < 2700){
+                            int_random = rand.nextInt(upperbound) + 1;
+                            spin=false;
+                            spinner temp = new spinner();
+                            spinnerr = temp.showSpin(int_random);
+                            Image idc =  Toolkit.getDefaultToolkit().getImage("tempsnip.png");
+                            idc = idc.getScaledInstance(190, 160, Image.SCALE_SMOOTH);
+                            ImageIcon spin1 = new ImageIcon(idc);
+
+                            JLabel labelspin1;
+                            labelspin1 = new JLabel();
+                            labelspin1.setVisible(true);
+                            labelspin1.setBounds(12 , 300 , 190 , 160);
+                            labelspin1.setBackground(Color.blue);
+                            labelspin1.setOpaque(true);
+                            labelspin1.setIcon(spin1);
+                            add(labelspin1);
+                            setVisible(true);
+                            repaint();
+                            labelspin1.addMouseListener(new MouseListener() {
+                                @Override
+                                public void mouseClicked(MouseEvent e) {
+                                    spin = true;
+                                    labelspin1.setVisible(false);
+                                }
+
+                                @Override
+                                public void mousePressed(MouseEvent e) {
+
+                                }
+
+                                @Override
+                                public void mouseReleased(MouseEvent e) {
+
+                                }
+
+                                @Override
+                                public void mouseEntered(MouseEvent e) {
+
+                                }
+
+                                @Override
+                                public void mouseExited(MouseEvent e) {
+
+                                }
+                            });
+                            try {
+                                gameThread.currentThread().sleep(9 * 1000);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                            spin = false;
+                            //int_random =7;
+                            p2.setCnt(int_random);
                         }
-                    }
-                    p1.setCnt(0);
-
-
-                    if(p1.getSteps() == 586 || p1.getSteps() == 851 || p1.getSteps() == 951 || p1.getSteps() == 1291 || p1.getSteps() == 1561){
-                        p1.setBabies(1);
-                    }else if(p1.getSteps() == 1056 || p1.getSteps() == 1221 || p1.getSteps() == 1781 || p1.getSteps() == 2091){
-                        p1.setBabies(2);
-                    }else if(p1.getSteps() < 2700 && p1.getSteps() != 186 && p1.getSteps() !=416 && p1.getSteps() != 546 && p1.getSteps() != 751 && p1.getSteps() != 1141 && p1.getSteps() != 1681 && p1.getSteps()!=1881 && p1.getSteps() != 2471){
-                        actionCard a = new actionCard();
-                        cards = a.pickCard();
-                        int val = a.getIndex();
-                        //System.out.println(val);
-                        if(val == 0){
-                            p1.subMoney(50000);
-                           // System.out.println(p1.getMoney());
-                        }else if(val == 1){
-                            p1.subMoney(30000);
-                            // System.out.println(p1.getMoney());
-                        }else if(val == 2){
-                            p1.subMoney(50000);
-                            // System.out.println(p1.getMoney());
-                        }else if(val == 3){
-                            p1.addMoney(50000);
-                            // System.out.println(p1.getMoney());
-                        }else if(val == 4){
-                            p1.subMoney(50000);
-                            //  System.out.println(p1.getMoney());
-                        }else if(val == 5){
-                            p1.subMoney(50000);
-                            // System.out.println(p1.getMoney());
-                        }else if(val == 6){
-                            p1.addMoney(60000);
-                            // System.out.println(p1.getMoney());
-                        }else if(val == 7){
-                            p1.subMoney(50000);
-                            //  System.out.println(p1.getMoney());
-                        }else if(val == 8){
-                            p1.subMoney(50000);
-                            //  System.out.println(p1.getMoney());
-                        }else if(val == 9){
-                            p1.addMoney(70000);
-                            //   System.out.println(p1.getMoney());
-                        }else if(val == 10){
-                            p1.subMoney(60000);
-                            //System.out.println(p1.getMoney());
-                        }else if(val == 11){
-                            p1.subMoney(80000);
-                            System.out.println(p1.getMoney());
-                        }else if(val == 12){
-                            p1.subMoney(150000);
-                            System.out.println(p1.getMoney());
-                            p1.getMoney();
-                        }else if(val == 13){
-                            p1.subMoney(40000);
-                            System.out.println(p1.getMoney());
-                        }else if(val == 14){
-                            p1.subMoney(80000);
-                            System.out.println(p1.getMoney());
-                        }else if(val == 15){
-                            p1.addMoney(70000);
-                            System.out.println(p1.getMoney());
-                        }else if(val == 16){
-                            p1.addMoney(80000);
-                            System.out.println(p1.getMoney());
-                        }else if(val == 17){
-                            p1.addMoney(100000);
-                            System.out.println(p1.getMoney());
-                        }else if(val == 18){
-                            p1.subMoney(70000);
-                            System.out.println(p1.getMoney());
-                        }else if(val == 19){
-                            p1.subMoney(50000);
-                            System.out.println(p1.getMoney());
-                        }else if(val == 20){
-                            p1.addMoney(50000);
-                            System.out.println(p1.getMoney());
-                        }else if(val == 21){
-                            p1.addMoney(70000);
-                            System.out.println(p1.getMoney());
-                        }else{
-                            p1.addMoney(80000);
-                            System.out.println(p1.getMoney());
+                        while (p2.getCnt() > 0 && p2.getSteps() < 2700) {
+                            movePieces();
+                            System.out.println(p2.getCnt());
+                            try {
+                                gameThread.sleep(1000 / FPS);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
-                        changes = true;
-                    }
-                    try {
-                        repaint();
-                        gameThread.currentThread().sleep(5 * 1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    changes = false;
-                    repaint();
-                    if(p2.getSteps() < 2700){
-                        int_random = rand.nextInt(upperbound) + 1;
-                        spin = true;
-                        spinner temp = new spinner();
-                        spinnerr = temp.showSpin(int_random);
-                        repaint();
+
+                        if(p2.getSteps() == 586 || p2.getSteps() == 851 || p2.getSteps() == 951 || p2.getSteps() == 1291 || p2.getSteps() == 1561) {
+                            p2.setBabies(1);
+
+                        }else if(p2.getSteps() == 1056 || p2.getSteps() == 1221 || p2.getSteps() == 1781 || p2.getSteps() == 2091){
+                            p2.setBabies(2);
+                        }else if(p2.getSteps() < 2700 && p2.getSteps() < 2700 && p2.getSteps() != 186 && p2.getSteps() !=416 && p2.getSteps() != 546 && p2.getSteps() != 751 && p2.getSteps() != 1141 && p2.getSteps() != 1681 && p2.getSteps()!=1881 && p2.getSteps() != 2471){
+                            actionCard a = new actionCard();
+                            cards = a.pickCard();
+                            int val = a.getIndex();
+                            if(val == 0){
+                                p2.subMoney(50000);
+                            }else if(val == 1){
+                                p2.subMoney(30000);
+                            }else if(val == 2){
+                                p2.subMoney(50000);
+                            }else if(val == 3){
+                                p2.addMoney(50000);
+                            }else if(val == 4){
+                                p2.subMoney(50000);
+                            }else if(val == 5){
+                                p2.subMoney(50000);
+                            }else if(val == 6){
+                                p2.addMoney(60000);
+                            }else if(val == 7){
+                                p2.subMoney(50000);
+                            }else if(val == 8){
+                                p2.subMoney(50000);
+                            }else if(val == 9){
+                                p2.addMoney(70000);
+                            }else if(val == 10){
+                                p2.subMoney(60000);
+                            }else if(val == 11){
+                                p2.subMoney(80000);
+                            }else if(val == 12){
+                                p2.subMoney(150000);
+                            }else if(val == 13){
+                                p2.subMoney(40000);
+                            }else if(val == 14){
+                                p2.subMoney(80000);
+                            }else if(val == 15){
+                                p2.addMoney(70000);
+                            }else if(val == 16){
+                                p2.addMoney(80000);
+                            }else if(val == 17){
+                                p2.addMoney(100000);
+                            }else if(val == 18){
+                                p2.subMoney(70000);
+                            }else if(val == 19){
+                                p2.subMoney(50000);
+                            }else if(val == 20){
+                                p2.addMoney(50000);
+                            }else if(val == 21){
+                                p2.addMoney(70000);
+                            }else{
+                                p2.addMoney(80000);
+                            }
+                            changes = true;
+                        }
                         try {
-                            gameThread.currentThread().sleep(9 * 1000);
+                            repaint();
+                            gameThread.currentThread().sleep(5 * 1000);
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
-                        spin = false;
-                        //int_random =7;
-                        p2.setCnt(int_random);
-                    }
-                    while (p2.getCnt() > 0 && p2.getSteps() < 2700) {
-                        movePieces();
-                        System.out.println(p2.getCnt());
-                        try {
-                            gameThread.sleep(1000 / FPS);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    if(p2.getSteps() == 586 || p2.getSteps() == 851 || p2.getSteps() == 951 || p2.getSteps() == 1291 || p2.getSteps() == 1561) {
-                        p2.setBabies(1);
-
-                    }else if(p2.getSteps() == 1056 || p2.getSteps() == 1221 || p2.getSteps() == 1781 || p2.getSteps() == 2091){
-                        p2.setBabies(2);
-                    }else if(p2.getSteps() < 2700 && p2.getSteps() < 2700 && p2.getSteps() != 186 && p2.getSteps() !=416 && p2.getSteps() != 546 && p2.getSteps() != 751 && p2.getSteps() != 1141 && p2.getSteps() != 1681 && p2.getSteps()!=1881 && p2.getSteps() != 2471){
-                        actionCard a = new actionCard();
-                        cards = a.pickCard();
-                        int val = a.getIndex();
-                        if(val == 0){
-                            p2.subMoney(50000);
-                        }else if(val == 1){
-                            p2.subMoney(30000);
-                        }else if(val == 2){
-                            p2.subMoney(50000);
-                        }else if(val == 3){
-                            p2.addMoney(50000);
-                        }else if(val == 4){
-                            p2.subMoney(50000);
-                        }else if(val == 5){
-                            p2.subMoney(50000);
-                        }else if(val == 6){
-                            p2.addMoney(60000);
-                        }else if(val == 7){
-                            p2.subMoney(50000);
-                        }else if(val == 8){
-                            p2.subMoney(50000);
-                        }else if(val == 9){
-                            p2.addMoney(70000);
-                        }else if(val == 10){
-                            p2.subMoney(60000);
-                        }else if(val == 11){
-                            p2.subMoney(80000);
-                        }else if(val == 12){
-                            p2.subMoney(150000);
-                        }else if(val == 13){
-                            p2.subMoney(40000);
-                        }else if(val == 14){
-                            p2.subMoney(80000);
-                        }else if(val == 15){
-                            p2.addMoney(70000);
-                        }else if(val == 16){
-                            p2.addMoney(80000);
-                        }else if(val == 17){
-                            p2.addMoney(100000);
-                        }else if(val == 18){
-                            p2.subMoney(70000);
-                        }else if(val == 19){
-                            p2.subMoney(50000);
-                        }else if(val == 20){
-                            p2.addMoney(50000);
-                        }else if(val == 21){
-                            p2.addMoney(70000);
-                        }else{
-                            p2.addMoney(80000);
-                        }
-                        changes = true;
-                    }
-                    try {
+                        p2.setCnt(0);
+                        changes = false;
                         repaint();
-                        gameThread.currentThread().sleep(5 * 1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
                     }
-                    p2.setCnt(0);
-                    changes = false;
-                    repaint();
-                }
-                //print end game totals here
-                System.out.println("Player 1's Money: "+ "$" + p1.getMoney());
-                System.out.println("Player 1's Number of Children: " + p1.getBabies());
-                System.out.println("Player 2's Number of Children: " + p2.getBabies());
-                System.out.println("Player 2's Money: "+ "$" + p2.getMoney());
+                    //print end game totals here
+                    for(int i = p1.getBabies(); i >-1; i--){
+                        p1.addMoney(20000);
+                    }
+
+                    for(int i = p2.getBabies(); i >-1; i--){
+                        p2.addMoney(20000);
+                    }
+                    System.out.println("Player 1's Money: "+ "$" + p1.getMoney());
+                    System.out.println("Player 1's Number of Children: " + p1.getBabies());
+                    System.out.println("Player 2's Number of Children: " + p2.getBabies());
+                    System.out.println("Player 2's Money: "+ "$" + p2.getMoney());
+                    winner();
                 }// end of true false if
             }
         };
@@ -701,10 +797,24 @@ public class GamePanel extends JPanel implements MouseListener{
     }
 
 
+    public void winner(){
 
-public void setCard(Image card){
+        if (p1.getMoney() > p2.getMoney()) {
+             win1 = true;
+            repaint();
+        }else{
+             win2 = true;
+            repaint();
+        }
 
-}
+
+
+
+    }
+
+    public void setCard(Image card){
+
+    }
     //erika eat cheeseee
 //test pushh
 
@@ -728,6 +838,18 @@ public void setCard(Image card){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
+        if(win1){
+            System.out.println("Win1");
+            Image onne = Toolkit.getDefaultToolkit().getImage("P1wins.PNG"); /*the image cannot be in the SRC folder*/
+            g2.drawImage(onne,35,35,800,510,this);
+
+        }
+        if(win2){
+            System.out.println("win2");
+            Image twoo = Toolkit.getDefaultToolkit().getImage("P2wins.PNG"); /*the image cannot be in the SRC folder*/
+            g2.drawImage(twoo,35,35,800,510,this);
+
+        }
         Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoardd.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
 
@@ -739,13 +861,16 @@ public void setCard(Image card){
         //g2.rotate(Math.toRadians(30), 10,10);
         g2.drawImage(spin,12,271,200,200,this);
 
-            Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
-        g2.drawImage(actionCard,742,10,110,145,this);
+        Image actionCard = Toolkit.getDefaultToolkit().getImage("actionCard.PNG");
 
-            Image houseCard = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
+        g2.drawImage(actionCard,742,7,110,145,this);
+
+
+
+        Image houseCard = Toolkit.getDefaultToolkit().getImage("houseCard.PNG");
         g2.drawImage(houseCard,685,157,170,85,this);
 
-            Image careerCard = Toolkit.getDefaultToolkit().getImage("careerCard.PNG");
+        Image careerCard = Toolkit.getDefaultToolkit().getImage("careerCard.PNG");
         g2.drawImage(careerCard,685,246,170,85,this);
 
 
