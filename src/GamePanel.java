@@ -45,6 +45,9 @@ public class GamePanel extends JPanel implements MouseListener{
     JLabel label2;
     JLabel label3;
 
+    JLabel player1stats;
+    JLabel player2stats;
+
     boolean one = false;
     boolean two = false;
 
@@ -65,6 +68,27 @@ public class GamePanel extends JPanel implements MouseListener{
         gameThread = new Thread() {
 
             public void run() {
+
+
+                player1stats = new JLabel("<html>Hello World!<br/>blahblahblah</html>");
+                player1stats.setBounds(10, 700, 250, 70);
+                Font fonty = new Font("SansSerif", Font.BOLD, 12);
+                player1stats.setFont(fonty);
+                player1stats.setBackground(Color.WHITE);
+                player1stats.setOpaque(true);
+                player1stats.setText("<html>Player 1- Money: $" + p1.getMoney() + ", Career: " + p1.getCareer() + ", Salary: $" + p1.getSalary() + ", Babies: " + p1.getBabies());
+                player1stats.setVisible(true);
+                add(player1stats);
+
+                player2stats = new JLabel("<html>Hello World!<br/>blahblahblah</html>");
+                player2stats.setBounds(10, 700, 250, 70);
+                player2stats.setFont(fonty);
+                player2stats.setBackground(Color.WHITE);
+                player2stats.setOpaque(true);
+                player2stats.setText("<html>Player 2- Money: $" + p2.getMoney() + ", Career: " + p2.getCareer() +", Salary: $" + p2.getSalary() + ", Babies: " + p2.getBabies());
+                player2stats.setVisible(true);
+                add(player2stats);
+
                 if(start)
                 {
 
@@ -644,6 +668,8 @@ public class GamePanel extends JPanel implements MouseListener{
                             throw new RuntimeException(e);
                         }
                         changes = false;
+                        player1stats.setText("<html>Player 1- Money: $" + p1.getMoney() + ", Career: " + p1.getCareer() + ", Salary: $" + p1.getSalary() + ", Babies: " + p1.getBabies());
+
                         repaint();
                         if(p2.getSteps() < 2700){
                             int_random = rand.nextInt(upperbound) + 1;
@@ -776,6 +802,7 @@ public class GamePanel extends JPanel implements MouseListener{
                         }
                         p2.setCnt(0);
                         changes = false;
+                        player2stats.setText("<html>Player 2- Money: $" + p2.getMoney() + ", Career: " + p2.getCareer() +", Salary: $" + p2.getSalary() + ", Babies: " + p2.getBabies());
                         repaint();
                     }
                     //print end game totals here
@@ -800,14 +827,15 @@ public class GamePanel extends JPanel implements MouseListener{
     }
 
 
-    public void winner(){
+    public void winner() {
 
-        if(p1.getMoney() > p2.getMoney()){
+        if (p1.getMoney() > p2.getMoney()) {
             one = true;}
         else
             two = true;
 
-    }
+        }
+
 
     public void setCard(Image card){
 
@@ -838,12 +866,12 @@ public class GamePanel extends JPanel implements MouseListener{
 
         if(one == true)
         {
-            Image p1 = Toolkit.getDefaultToolkit().getImage("p1wins.PNG");
+            Image p1 = Toolkit.getDefaultToolkit().getImage("P1wins.PNG");
             g2.drawImage(p1,35,35,800,510,this);
         }
         if(two == true)
         {
-            Image p2 = Toolkit.getDefaultToolkit().getImage("p2wins.PNG");
+            Image p2 = Toolkit.getDefaultToolkit().getImage("P2wins.PNG");
             g2.drawImage(p2,35,35,800,510,this);
         }
 
