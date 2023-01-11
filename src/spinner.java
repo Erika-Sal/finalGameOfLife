@@ -1,10 +1,11 @@
+import javax.swing.*;
 import java.applet.Applet;
 import java.awt.*;
 import java.util.Random;
 
 public class spinner extends Applet {
 
-    Image[] spinNums;
+    static Image[] spinNums;
     int index;
 
     public spinner() {
@@ -23,6 +24,11 @@ public class spinner extends Applet {
     public Image showSpin(int num){
         num-=1;
         return spinNums[num];
+    }
+
+    public static ImageIcon getIcons(int num){
+        ImageIcon temp = new ImageIcon(spinNums[num]);
+        return temp;
     }
 }
 

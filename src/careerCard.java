@@ -7,6 +7,7 @@ import java.util.Random;
 public class careerCard {
     Image[] cc;
     int index;
+    String career;
     int value;
     public careerCard(){
         cc = new Image[14];
@@ -45,6 +46,10 @@ value = 0;
 
     public int getIndex(){
         return index;
+    }
+
+    public String getCar(){
+        return career;
     }
 
     public void setValue(){

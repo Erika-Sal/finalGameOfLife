@@ -369,7 +369,7 @@ public class GamePanel extends JPanel implements MouseListener{
                             Point p = new Point();
                             player2=false;
                             // while(label1.isVisible()){
-
+                            p1.setCareer(three.getCar());
                             p2.setSalary(money3);
                             System.out.println(p2.getSalary());
                             label3.setVisible(false);
@@ -830,10 +830,10 @@ public class GamePanel extends JPanel implements MouseListener{
     public void winner() {
 
         if (p1.getMoney() > p2.getMoney()) {
-            one = true;}
-        else
-            two = true;
+            one = true;
 
+        }else
+            two = true;
         }
 
 
@@ -864,21 +864,25 @@ public class GamePanel extends JPanel implements MouseListener{
         Graphics2D g2 = (Graphics2D) g;
 
 
-        if(one == true)
-        {
-            Image p1 = Toolkit.getDefaultToolkit().getImage("P1wins.PNG");
-            g2.drawImage(p1,35,35,800,510,this);
-        }
-        if(two == true)
-        {
-            Image p2 = Toolkit.getDefaultToolkit().getImage("P2wins.PNG");
-            g2.drawImage(p2,35,35,800,510,this);
-        }
+
 
 
         Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoardd.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
 
+
+
+
+        if(one )
+        {
+            Image p1 = Toolkit.getDefaultToolkit().getImage("P1wins.PNG");
+            g2.drawImage(p1,35,35,800,510,this);
+        }
+        if(two)
+        {
+            Image p2 = Toolkit.getDefaultToolkit().getImage("P2wins.PNG");
+            g2.drawImage(p2,35,35,800,510,this);
+        }
 
         if(spin){
             g2.drawImage(spinnerr, 12 , 300 , 190 , 160 , this);
@@ -916,7 +920,16 @@ public class GamePanel extends JPanel implements MouseListener{
 
 
 
-
+        if(one == true)
+        {
+            Image p1 = Toolkit.getDefaultToolkit().getImage("P1wins.PNG");
+            g2.drawImage(p1,35,35,800,510,this);
+        }
+        if(two == true)
+        {
+            Image p2 = Toolkit.getDefaultToolkit().getImage("P2wins.PNG");
+            g2.drawImage(p2,35,35,800,510,this);
+        }
 
 
 
