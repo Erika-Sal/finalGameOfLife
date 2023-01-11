@@ -56,32 +56,46 @@ value = 0;
         int val = getIndex();
         if(val == 0){
             value =  100000;
+            career ="Athlete";
         }else if(val==1){
             value = 130000;
+            career = "Brain Surgeon";
         }else if(val == 2){
             value = 80000;
+            career = "Farmer";
         }else if(val == 3){
             value = 70000;
+            career = "Fashion Designer";
         }else if(val == 4){
             value = 100000;
+            career = "Film Star";
         }else if(val == 5){
             value = 120000;
+            career = "lawyer";
         }else if(val == 6){
             value = 60000;
+            career = "Mechanic";
         }else if(val == 7){
             value = 80000;
+            career = "Musician";
         }else if(val == 8){
             value = 100000;
+            career = "Pilot";
         }else if(val == 9){
             value = 80000;
+            career = "Police Officer";
         }else if(val == 10){
             value = 110000;
+            career = "Rocket Scientist";
         }else if(val == 11){
             value = 90000;
+            career = "Stunt Performer";
         }else if(val == 12){
             value = 90000;
+            career = "Teacher";
         }else{
             value = 100000;
+            career = "Vet";
         }
 
     }

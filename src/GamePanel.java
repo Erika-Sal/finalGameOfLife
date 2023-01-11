@@ -167,6 +167,7 @@ public class GamePanel extends JPanel implements MouseListener{
                             player1.setBounds(300, 50, 250, 70);
 
                             //add(player1);
+                            p1.setCareer(three.getCar());
                             p1.setSalary(money3);
                             System.out.println(p1.getSalary());
                             label3.setVisible(false);
@@ -208,6 +209,7 @@ public class GamePanel extends JPanel implements MouseListener{
                             Point p = new Point();
                             System.out.println("Clicked");
                             start=false;
+                            p1.setCareer(two.getCar());
                             p1.setSalary(money2);
                             System.out.println(p1.getSalary());
                             // while(label1.isVisible()){
@@ -253,6 +255,7 @@ public class GamePanel extends JPanel implements MouseListener{
                             Point p = new Point();
                             System.out.println("Clicked");
                             start=false;
+                            p1.setCareer(one.getCar());
                             p1.setSalary(one.getValue());
                             System.out.print(p1.getSalary());
                             player1.setBounds(300, 50, 250, 70);
@@ -369,7 +372,7 @@ public class GamePanel extends JPanel implements MouseListener{
                             Point p = new Point();
                             player2=false;
                             // while(label1.isVisible()){
-                            p1.setCareer(three.getCar());
+                            p2.setCareer(three.getCar());
                             p2.setSalary(money3);
                             System.out.println(p2.getSalary());
                             label3.setVisible(false);
@@ -405,6 +408,7 @@ public class GamePanel extends JPanel implements MouseListener{
                             Point p = new Point();
                             System.out.println("Clicked");
                             player2=false;
+                            p2.setCareer(two.getCar());
                             p2.setSalary(money2);
                             System.out.println(p2.getSalary());
                             // while(label1.isVisible()){
@@ -447,6 +451,7 @@ public class GamePanel extends JPanel implements MouseListener{
                             Point p = new Point();
                             System.out.println("Clicked");
                             player2=false;
+                            p2.setCareer(one.getCar());
                             p2.setSalary(one.getValue());
                             System.out.print(p2.getSalary());
                             // while(label1.isVisible()){
