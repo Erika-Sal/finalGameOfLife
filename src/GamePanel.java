@@ -872,7 +872,7 @@ public class GamePanel extends JPanel implements MouseListener{
 
 
 
-        Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoardd.jpg"); /*the image cannot be in the SRC folder*/
+        Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoardFinal.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
 
 
