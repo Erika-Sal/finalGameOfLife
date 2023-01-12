@@ -588,7 +588,7 @@ public class GamePanel extends JPanel implements MouseListener{
 
                         }else if(p1.getSteps() == 1056 || p1.getSteps() == 1221 || p1.getSteps() == 1781 || p1.getSteps() == 2091){
                             p1.setBabies(2);
-                        }else if(p1.getSteps() < 2700 && p1.getSteps() != 186 && p1.getSteps() !=416 && p1.getSteps() != 546 && p1.getSteps() != 751 && p1.getSteps() != 1141 && p1.getSteps() != 1681 && p1.getSteps()!=1881 && p1.getSteps() != 2471){
+                        }else if(p1.getSteps() < 2700 && p1.getSteps() != 186 && p1.getSteps() !=416 && p1.getSteps() != 546 && p1.getSteps() != 751 && p1.getSteps() != 1141 && p1.getSteps() != 1681 && p1.getSteps()!=1881 && p1.getSteps() != 2411){
                             actionCard a = new actionCard();
                             cards = a.pickCard();
                             int val = a.getIndex();
@@ -872,7 +872,7 @@ public class GamePanel extends JPanel implements MouseListener{
 
 
 
-        Image img1 = Toolkit.getDefaultToolkit().getImage("gameBoardFinal.jpg"); /*the image cannot be in the SRC folder*/
+        Image img1 = Toolkit.getDefaultToolkit().getImage("lastGameBoard.jpg"); /*the image cannot be in the SRC folder*/
         g2.drawImage(img1, 0 , 0 , 870 , 580 , this);
 
 

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76b4e7eb-ade9-44b2-9c9b-eb8583023b7a" name="Changes" comment="new Commit" />
+    <list default="true" id="76b4e7eb-ade9-44b2-9c9b-eb8583023b7a" name="Changes" comment="new Commit">
+      <change afterPath="$PROJECT_DIR$/lastGameBoard.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,8 +54,8 @@
       <recent name="C:\Users\bsalv\IdeaProjects\finalGameOfLife" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\18328\IdeaProjects\finalGameOfLife" />
       <recent name="C:\Users\s722971\IdeaProjects\finalGameOfLife" />
+      <recent name="C:\Users\18328\IdeaProjects\finalGameOfLife" />
       <recent name="C:\Users\bsalv\IdeaProjects\finalGameOfLife" />
       <recent name="C:\Users\bsalv\IdeaProjects\finalGameOfLife\src" />
     </key>
@@ -247,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673379873314</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="new Commit">
+      <created>1673549692870</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1673549692870</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -262,9 +273,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new Commit" />
     <MESSAGE value="Erika commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Erika commit" />
+    <MESSAGE value="new Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="new Commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
