@@ -51,8 +51,8 @@ public class GamePanel extends JPanel implements MouseListener{
     boolean one = false;
     boolean two = false;
 
-    player p1 = new player(200000, " ", 0, " ", 0, 0, this, 90, 45,0);
-    player p2 = new player(200000, " ", 0, " ", 0, 0, this, 90, 45,0);
+    player p1 = new player(50000, " ", 0, " ", 0, 0, this, 90, 45,0);
+    player p2 = new player(50000, " ", 0, " ", 0, 0, this, 90, 45,0);
     boolean go = true;
     JLabel player1;
     public GamePanel() {
@@ -76,7 +76,7 @@ public class GamePanel extends JPanel implements MouseListener{
                 player1stats.setFont(fonty);
                 player1stats.setBackground(Color.WHITE);
                 player1stats.setOpaque(true);
-                player1stats.setText("<html>Player 1- Money: $" + p1.getMoney() + ", Career: " + p1.getCareer() + ", Salary: $" + p1.getSalary() + ", Babies: " + p1.getBabies());
+                player1stats.setText("<html>Player 1 -- Money: $" + p1.getMoney() + ", Career: " + p1.getCareer() + ", Salary: $" + p1.getSalary() + ", Babies: " + p1.getBabies());
                 player1stats.setVisible(true);
                 add(player1stats);
 
@@ -85,7 +85,7 @@ public class GamePanel extends JPanel implements MouseListener{
                 player2stats.setFont(fonty);
                 player2stats.setBackground(Color.WHITE);
                 player2stats.setOpaque(true);
-                player2stats.setText("<html>Player 2- Money: $" + p2.getMoney() + ", Career: " + p2.getCareer() +", Salary: $" + p2.getSalary() + ", Babies: " + p2.getBabies());
+                player2stats.setText("<html>Player 2 -- Money: $" + p2.getMoney() + ", Career: " + p2.getCareer() +", Salary: $" + p2.getSalary() + ", Babies: " + p2.getBabies());
                 player2stats.setVisible(true);
                 add(player2stats);
 
@@ -673,7 +673,7 @@ public class GamePanel extends JPanel implements MouseListener{
                             throw new RuntimeException(e);
                         }
                         changes = false;
-                        player1stats.setText("<html>Player 1- Money: $" + p1.getMoney() + ", Career: " + p1.getCareer() + ", Salary: $" + p1.getSalary() + ", Babies: " + p1.getBabies());
+                        player1stats.setText("<html>Player 1 -- Money: $" + p1.getMoney() + ", Career: " + p1.getCareer() + ", Salary: $" + p1.getSalary() + ", Babies: " + p1.getBabies());
 
                         repaint();
                         if(p2.getSteps() < 2700){
@@ -807,7 +807,7 @@ public class GamePanel extends JPanel implements MouseListener{
                         }
                         p2.setCnt(0);
                         changes = false;
-                        player2stats.setText("<html>Player 2- Money: $" + p2.getMoney() + ", Career: " + p2.getCareer() +", Salary: $" + p2.getSalary() + ", Babies: " + p2.getBabies());
+                        player2stats.setText("<html>Player 2 -- Money: $" + p2.getMoney() + ", Career: " + p2.getCareer() +", Salary: $" + p2.getSalary() + ", Babies: " + p2.getBabies());
                         repaint();
                     }
                     //print end game totals here
